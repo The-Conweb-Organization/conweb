@@ -1,2 +1,3 @@
 # conweb
-Showcase for web and tech related blog articles and projects.
+
+**Hello and welcome to [conweb.tech](https://conweb.tech). If you want more information about this project please checkout the following [conweb github repository](https://github.com/The-Conweb-Organization)**
