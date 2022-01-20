@@ -43,6 +43,7 @@ module.exports = {
 		'gatsby-plugin-image',
 		'gatsby-plugin-sharp',
 		'gatsby-plugin-postcss',
+		'gatsby-plugin-fontawesome-css',
 		{
 			resolve: 'gatsby-source-contentful',
 			options: contentfulConfig
