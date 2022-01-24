@@ -47,6 +47,23 @@ module.exports = {
 		{
 			resolve: 'gatsby-source-contentful',
 			options: contentfulConfig
+		},
+		{
+			resolve: 'gatsby-transformer-remark',
+			options: {
+				plugins: [
+					{
+						resolve: 'gatsby-remark-classes',
+						options: {
+							classMap: {
+								'heading[depth=2]': 'mb-6 text-conOrange-200 text-conH2',
+								'heading[depth=3]': 'mb-4 text-conH3'
+							}
+						}
+					}
+				],
+				gfm: true
+			}
 		}
 	]
 };

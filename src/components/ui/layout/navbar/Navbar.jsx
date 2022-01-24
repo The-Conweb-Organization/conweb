@@ -19,7 +19,8 @@ const Navbar = () => {
 				<div className='flex justify-center'>
 					{topNavigation && topNavigation.at(-1).url.match(regex) && (
 						<Link to={`${topNavigation.at(0).url}`}>
-							<img src='' alt='Logo' />
+							{/* <img src='' alt='Logo' /> */}
+							LOGO
 						</Link>
 					)}
 				</div>
