@@ -11,13 +11,16 @@ const options = {
 			return <h3 className='text-conH3 text-conOrange-200'>{children}</h3>;
 		},
 		[BLOCKS.PARAGRAPH]: (node, children) => {
-			return <p>{children}</p>;
+			return <p>{children[0]}</p>;
+		},
+		[BLOCKS.UL_LIST]: (node, children) => {
+			return <ul className='list-disc pl-4'>{children}</ul>;
 		}
 	}
 };
 
 const RichTextRendering = ({ blogContent }) => {
-	return <div>{renderRichText(blogContent, options)}</div>;
+	return <>{renderRichText(blogContent, options)}</>;
 };
 
 export default RichTextRendering;

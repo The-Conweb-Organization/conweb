@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import useTopNavigation from '../../../../hooks/useTopNavigation';
@@ -7,6 +8,7 @@ import useTopNavigation from '../../../../hooks/useTopNavigation';
 const Navbar = () => {
 	const topNavigation = useTopNavigation();
 	const regex = /[a-zA-Z0-9]+/gm;
+	const logo = '../../../../assets/images/me.jpg';
 
 	return (
 		<nav className='bg-conBlueGreen-700'>
@@ -19,8 +21,13 @@ const Navbar = () => {
 				<div className='flex justify-center'>
 					{topNavigation && topNavigation.at(-1).url.match(regex) && (
 						<Link to={`${topNavigation.at(0).url}`}>
-							{/* <img src='' alt='Logo' /> */}
-							LOGO
+							<StaticImage
+								src={logo}
+								width={75}
+								height={75}
+								placeholder='blurred'
+								alt='Logo'
+							/>
 						</Link>
 					)}
 				</div>
