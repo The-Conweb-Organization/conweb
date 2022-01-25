@@ -44,7 +44,7 @@ const HomeTemplate = () => {
 											rel='noreferrer'
 										>
 											{nodes[0].blogFeaturedImage.photographer}
-										</a>
+										</a>{' '}
 										on{' '}
 										<a href='https://unsplash.com/s/photos/tech?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>
 											Unsplash
