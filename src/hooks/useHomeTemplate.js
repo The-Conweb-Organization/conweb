@@ -30,7 +30,7 @@ const useHomeTemplate = () => {
 					excerpt {
 						excerpt
 					}
-					id
+					postId: id
 					getPostPath: gatsbyPath(filePath: "/blog/{contentfulPost.slug}")
 				}
 			}

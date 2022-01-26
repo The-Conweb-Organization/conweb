@@ -18,7 +18,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
 	siteMetadata: {
 		title: 'Conweb',
-		title: 'Showcase for web and tech related blog articles and projects.'
+		description: 'Showcase for web and tech related blog articles and projects.'
 	},
 	pathPrefix: '/',
 	plugins: [

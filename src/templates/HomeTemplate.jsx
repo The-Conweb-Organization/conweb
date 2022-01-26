@@ -103,7 +103,7 @@ const HomeTemplate = () => {
 							.slice(1)
 							.map(
 								({
-									id: postId,
+									postId,
 									blogTitle,
 									blogCreatedAt,
 									blogAuthor,

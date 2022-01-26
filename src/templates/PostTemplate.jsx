@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { navigate } from 'gatsby';
 
 const PostTemplate = ({ blogPost }) => {
 	const image = getImage(blogPost.blogFeaturedImage.imageFeatured);
-	console.log(blogPost);
 
 	return (
 		<>
@@ -13,6 +13,7 @@ const PostTemplate = ({ blogPost }) => {
 						<button
 							type='button'
 							className='btn bg-conBlueGreen-700 text-conOrange-200 text-2xl w-fit justify-self-end'
+							onClick={() => navigate(-1)}
 						>
 							<i className='fas fa-long-arrow-alt-left'></i>&emsp;Back
 						</button>
