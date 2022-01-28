@@ -1,6 +1,10 @@
 import React, { Fragment } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { navigate } from 'gatsby';
+import RichTextRendering from '../components/blog/RichTextRendering';
+import RichTextToc from '../components/blog/RichTextToc';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 
 const PostTemplate = ({ blogPost }) => {
 	const image = getImage(blogPost.blogFeaturedImage.imageFeatured);
@@ -9,15 +13,16 @@ const PostTemplate = ({ blogPost }) => {
 		<>
 			<section>
 				<div className='mx-auto px-4 md:px-12 pt-12'>
-					<h1 className='text-7xl text-conOrange-200 text-center font-black'>
+					<h1 className='text-conH1 flex justify-between items-center text-conOrange-200 text-center font-black'>
 						<button
 							type='button'
-							className='btn bg-conBlueGreen-700 text-conOrange-200 text-2xl w-fit justify-self-end'
+							className='btn bg-conBlueGreen-700 text-conOrange-200 text-2xl w-fit'
 							onClick={() => navigate(-1)}
 						>
-							<i className='fas fa-long-arrow-alt-left'></i>&emsp;Back
+							<FontAwesomeIcon icon={faLongArrowAltLeft} />
+							&ensp;Back
 						</button>
-						<span className='col-span-3'>{blogPost.blogTitle}</span>
+						<span>{blogPost.blogTitle}</span>
 					</h1>
 					<div className='flex justify-center'>
 						<p className='border border-conOrange-200 text-conOrange-200 text-tail-900 text-xs py-0.5 px-1 rounded'>
@@ -29,6 +34,7 @@ const PostTemplate = ({ blogPost }) => {
 						<div className='col-span-2 hidden sm:block bg-conOrange-200 h-full rounded'>
 							<h3 className='text-4xl md:text-2xl text-conBlueGreen-700 text-center font-bold'>
 								Table of contents
+								<RichTextToc blogContent={blogPost.blogContent} />
 							</h3>
 						</div>
 						<div className='col-span-4 border-2 border-conBlueGreen-700 rounded'>
@@ -69,56 +75,8 @@ const PostTemplate = ({ blogPost }) => {
 								</ul>
 							</div>
 							<div className='mx-2 mt-12'>
-								<h2 className='mb-6 text-conOrange-200 text-5xl'>
-									First headline of post one
-								</h2>
-
-								<p className='font-bold mb-6'>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. In
-									quo, obcaecati ut quod perspiciatis voluptatibus asperiores
-									nesciunt repudiandae officiis quisquam quam rem maxime quasi
-									quibusdam fugit id distinctio aspernatur. Blanditiis deserunt
-									quaerat quod doloribus et voluptas quas quam perferendis
-									voluptatibus, iusto excepturi tenetur ipsam animi itaque
-									aspernatur perspiciatis neque optio provident vero veniam quos
-									ex! Deserunt quasi enim magnam quis necessitatibus
-									perspiciatis nihil, distinctio rem ipsa ipsam reiciendis?
-									Exercitationem, temporibus ea fugit consequatur corrupti
-									eligendi excepturi veritatis cumque quod aut!
-								</p>
-
-								<div>
-									<h3 className='text-conH2'>First headline of headline one</h3>
-									<h3 className='text-4xl md:text-2xl'>
-										Second headline of headline one
-									</h3>
-									<h3 className='text-3xl'>Third headline of headline one</h3>
-									<h2 className='mb-6 text-conOrange-200 text-5xl'>
-										Second headline of post one
-									</h2>
-									<h3 className='text-4xl md:text-2xl'>
-										First headline of headline two
-									</h3>
-									<h3 className='text-4xl md:text-2xl'>
-										Second headline of headline two
-									</h3>
-									<h3 className='text-4xl md:text-2xl'>
-										Third headline of headline two
-									</h3>
-									<h2 className='mb-6 text-conOrange-200 text-5xl'>
-										Third headline of post one
-									</h2>
-									<h3 className='text-4xl md:text-2xl'>
-										First headline of headline three
-									</h3>
-									<h3 className='text-4xl md:text-2xl'>
-										Second headline of headline three
-									</h3>
-									<h3 className='text-4xl md:text-2xl'>
-										Third headline of headline three
-									</h3>
-								</div>
-								<div>Summary</div>
+								<p className='font-bold'>{blogPost.excerpt.excerpt}</p>
+								<RichTextRendering blogContent={blogPost.blogContent} />
 							</div>
 						</div>
 					</div>

@@ -1,8 +1,26 @@
 import React from 'react';
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const options = {
+	renderMark: {
+		[MARKS.BOLD]: text => {
+			return <b className='font-bold'>{text}</b>;
+		},
+		[MARKS.ITALIC]: text => {
+			return <i className='font-italic'>{text}</i>;
+		},
+		[MARKS.UNDERLINE]: text => {
+			return <u className='underline'>{text}</u>;
+		},
+		[MARKS.CODE]: text => {
+			if (text.length > 0) {
+				return <code className='bg-gray-300'>{text}</code>;
+			}
+		}
+	},
 	renderNode: {
 		[BLOCKS.HEADING_2]: (node, children) => {
 			return <h2 className='text-conH2 text-conOrange-200'>{children}</h2>;
@@ -11,16 +29,37 @@ const options = {
 			return <h3 className='text-conH3 text-conOrange-200'>{children}</h3>;
 		},
 		[BLOCKS.PARAGRAPH]: (node, children) => {
-			return <p>{children[0]}</p>;
+			return <p>{children}</p>;
 		},
 		[BLOCKS.UL_LIST]: (node, children) => {
 			return <ul className='list-disc pl-4'>{children}</ul>;
+		},
+		[BLOCKS.EMBEDDED_ENTRY]: node => {
+			const typename = node.data.target.__typename;
+			const codeLanguage = node.data.target.codeLanguage;
+
+			if (typename === 'ContentfulCode') {
+				return (
+					<SyntaxHighlighter
+						className='mb-4'
+						language={codeLanguage}
+						style={atomOneDarkReasonable}
+						showLineNumbers
+					>
+						{node.data.target.codeBlock.codeBlock}
+					</SyntaxHighlighter>
+				);
+			}
 		}
 	}
 };
 
 const RichTextRendering = ({ blogContent }) => {
-	return <>{renderRichText(blogContent, options)}</>;
+	return (
+		<div>
+			{blogContent && <div>{renderRichText(blogContent, options)}</div>}
+		</div>
+	);
 };
 
 export default RichTextRendering;

@@ -29,7 +29,10 @@ module.exports = {
 		'gatsby-plugin-fontawesome-css',
 		{
 			resolve: 'gatsby-source-contentful',
-			options: contentfulConfig
+			options: {
+				spaceId,
+				accessToken
+			}
 		},
 		{
 			resolve: 'gatsby-transformer-remark',

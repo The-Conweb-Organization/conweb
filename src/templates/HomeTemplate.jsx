@@ -2,6 +2,8 @@ import React, { Fragment } from 'react';
 import useHomeTemplate from '../hooks/useHomeTemplate';
 import { navigate } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 
 const HomeTemplate = () => {
 	const { nodes } = useHomeTemplate();
@@ -87,7 +89,8 @@ const HomeTemplate = () => {
 								className='btn btn-block btn-outline border-conBlueGreen-700 text-conBlueGreen-700 hover:bg-conBlue-700 hover:border-transparent hover:text-conOrange-200 md:absolute md:bottom-0 md:right-0 md:w-fit'
 								onClick={() => navigate(nodes[0].getPostPath)}
 							>
-								Read More&emsp;<i className='fas fa-long-arrow-alt-right'></i>
+								Read More&emsp;
+								<FontAwesomeIcon icon={faLongArrowAltRight} />
 							</button>
 						</div>
 					</div>
@@ -175,7 +178,7 @@ const HomeTemplate = () => {
 																onClick={() => navigate(getPostPath)}
 															>
 																Read More&emsp;
-																<i className='fas fa-long-arrow-alt-right'></i>
+																<FontAwesomeIcon icon={faLongArrowAltRight} />
 															</button>
 														</div>
 													</div>

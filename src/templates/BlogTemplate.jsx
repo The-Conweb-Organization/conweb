@@ -2,6 +2,11 @@ import React, { Fragment } from 'react';
 import useBlogPage from '../hooks/useBlogPage';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { navigate } from 'gatsby';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+	faLongArrowAltRight,
+	faSlidersH
+} from '@fortawesome/free-solid-svg-icons';
 
 const BlogTemplate = () => {
 	const { nodes } = useBlogPage();
@@ -15,7 +20,7 @@ const BlogTemplate = () => {
 						type='button'
 						className='btn bg-conBlueGreen-700 text-conOrange-200 text-2xl w-fit justify-self-end'
 					>
-						<i className='fas fa-sliders-h'></i>
+						<FontAwesomeIcon icon={faSlidersH} />
 					</button>
 				</h2>
 				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
@@ -95,7 +100,7 @@ const BlogTemplate = () => {
 													onClick={() => navigate(getPostPath)}
 												>
 													Read More&emsp;
-													<i className='fas fa-long-arrow-alt-right'></i>
+													<FontAwesomeIcon icon={faLongArrowAltRight} />
 												</button>
 											</div>
 										</div>

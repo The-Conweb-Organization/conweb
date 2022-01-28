@@ -1,11 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-// import RichTextRendering from '../../components/blog/RichTextRendering';
 import PostTemplate from '../../templates/PostTemplate';
 
 const Post = ({ data: { contentfulPost } }) => {
 	return <PostTemplate blogPost={contentfulPost} />;
-	// return <RichTextRendering blogContent={blogContent} />;
 };
 
 export default Post;
@@ -31,8 +29,22 @@ export const query = graphql`
 				}
 				imageAltText
 			}
+			excerpt {
+				excerpt
+			}
 			blogContent {
 				raw
+				references {
+					... on ContentfulCode {
+						contentful_id
+						codeTitle
+						codeBlock {
+							codeBlock
+						}
+						codeLanguage
+						__typename
+					}
+				}
 			}
 			blogId: id
 		}
