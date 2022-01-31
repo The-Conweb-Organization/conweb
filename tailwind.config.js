@@ -1,6 +1,9 @@
 module.exports = {
 	content: ['./public/**/*.html', './src/**/*.{js,jsx,ts,tsx,vue}'],
 	theme: {
+		fontFamily: {
+			sans: ['open-sans', 'sans-serif']
+		},
 		extend: {
 			colors: {
 				conOrange: {

@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BLOCKS } from '@contentful/rich-text-types';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const RichTextToc = ({ blogContent }) => {
@@ -19,10 +18,10 @@ const RichTextToc = ({ blogContent }) => {
 	const options = {
 		renderNode: {
 			[BLOCKS.HEADING_2]: (node, children) => {
-				return <div>{children}</div>;
+				return <div className=''>{children}</div>;
 			},
 			[BLOCKS.HEADING_3]: (node, children) => {
-				return <div>{children}</div>;
+				return <div className=''>{children}</div>;
 			}
 		}
 	};

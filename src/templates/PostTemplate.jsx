@@ -1,13 +1,24 @@
-import React, { Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { navigate } from 'gatsby';
 import RichTextRendering from '../components/blog/RichTextRendering';
 import RichTextToc from '../components/blog/RichTextToc';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
+import StickyBox from 'react-sticky-box';
 
 const PostTemplate = ({ blogPost }) => {
+	// const [saveEntry, setSaveEntry] = useState({});
 	const image = getImage(blogPost.blogFeaturedImage.imageFeatured);
+
+	// const onObserveCallbackHandler = entry => {
+	// 	setSaveEntry(prevItem => ({
+	// 		...prevItem,
+	// 		entry
+	// 	}));
+	// };
+
+	// console.log(saveEntry);
 
 	return (
 		<>
@@ -31,12 +42,22 @@ const PostTemplate = ({ blogPost }) => {
 						</p>
 					</div>
 					<div className='sm:grid sm:grid-cols-6 gap-x-4'>
-						<div className='col-span-2 hidden sm:block bg-conOrange-200 h-full rounded'>
-							<h3 className='text-4xl md:text-2xl text-conBlueGreen-700 text-center font-bold'>
-								Table of contents
-								<RichTextToc blogContent={blogPost.blogContent} />
-							</h3>
+						<div className='col-span-2 hidden sm:block'>
+							<StickyBox
+								offsetTop={50}
+								className='border-2 border-conOrange-200 rounded p-12'
+							>
+								<h3 className='text-4xl md:text-2xl text-conBlueGreen-700 text-center font-bold pt-12'>
+									Table of contents
+									{blogPost.blogContent !== null && (
+										<div className='bg-conOrange-200 py-6 mt-12 rounded-lg min-h-fit'>
+											<RichTextToc blogContent={blogPost.blogContent} />
+										</div>
+									)}
+								</h3>
+							</StickyBox>
 						</div>
+
 						<div className='col-span-4 border-2 border-conBlueGreen-700 rounded'>
 							<figure className='p-2 drop-shadow-md'>
 								<GatsbyImage
@@ -76,7 +97,12 @@ const PostTemplate = ({ blogPost }) => {
 							</div>
 							<div className='mx-2 mt-12'>
 								<p className='font-bold'>{blogPost.excerpt.excerpt}</p>
-								<RichTextRendering blogContent={blogPost.blogContent} />
+								{blogPost.blogContent !== null && (
+									<RichTextRendering
+										blogContent={blogPost.blogContent}
+										// onObserveCallback={onObserveCallbackHandler}
+									/>
+								)}
 							</div>
 						</div>
 					</div>

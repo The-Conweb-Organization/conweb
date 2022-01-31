@@ -6,7 +6,7 @@ const Footer = () => {
 	const bottomNavigation = useBottomNavigation();
 
 	return (
-		<footer className='bg-conBlueGreen-700'>
+		<footer className='bg-conBlueGreen-700' id='footer'>
 			<div className='mx-auto px-4 md:px-12 pt-12'>
 				<div className='bg-conOrange-200 rounded flex flex-col md:flex-row items-center justify-center md:justify-between w-full px-4 py-6'>
 					<h3 className='text-4xl text-center text-conBlueGreen-700 font-bold flex-auto mb-6'>
