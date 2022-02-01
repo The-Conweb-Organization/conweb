@@ -4,6 +4,7 @@ import HomeTemplate from '../templates/HomeTemplate';
 import BlogTemplate from '../templates/BlogTemplate';
 import ProjectsTemplate from '../templates/ProjectsTemplate';
 import DefaultTemplate from '../templates/DefaultTemplate';
+import SearchTemplate from '../templates/SearchTemplate';
 
 const getTemplate = contentfulPage => {
 	const { template } = contentfulPage;
@@ -17,6 +18,9 @@ const getTemplate = contentfulPage => {
 
 		case 'projects':
 			return <ProjectsTemplate {...contentfulPage} />;
+
+		case 'search':
+			return <SearchTemplate {...contentfulPage} />;
 
 		default:
 			return <DefaultTemplate {...contentfulPage} />;

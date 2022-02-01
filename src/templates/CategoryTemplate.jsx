@@ -1,40 +1,29 @@
-import React, { useState, Fragment } from 'react';
-import useBlogPage from '../hooks/useBlogPage';
+import React, { Fragment } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { navigate } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-	faLongArrowAltRight,
-	faSlidersH
+	faLongArrowAltLeft,
+	faLongArrowAltRight
 } from '@fortawesome/free-solid-svg-icons';
-import Categories from '../components/blog/category/Categories';
 
-const BlogTemplate = () => {
-	const [showFiltering, setShowFiltering] = useState(false);
-
-	const showFilteringHandler = () => {
-		setShowFiltering(prevState => !prevState);
-	};
-
-	const { nodes } = useBlogPage();
-
+const CategoryTemplate = ({ categoryBlogPosts }) => {
 	return (
 		<section>
 			<div className='mx-auto px-4 md:px-12 pt-12'>
-				<h2 className='grid grid-cols-4 mb-12 text-center text-conOrange-200 font-bold text-5xl'>
-					<span className='col-span-3'>All or filtered blog articles</span>
+				<h2 className='text-conH2 flex justify-between items-center text-conOrange-200 text-center font-black mb-12'>
 					<button
-						onClick={showFilteringHandler}
 						type='button'
-						className='btn bg-conBlueGreen-700 text-conOrange-200 text-2xl w-fit justify-self-end'
+						className='btn bg-conBlueGreen-700 text-conOrange-200 text-2xl w-fit'
+						onClick={() => navigate(-1)}
 					>
-						<FontAwesomeIcon icon={faSlidersH} />
+						<FontAwesomeIcon icon={faLongArrowAltLeft} />
+						&ensp;Back
 					</button>
+					<span>Result for '{categoryBlogPosts.categoryName}' Category:</span>
 				</h2>
-				{showFiltering && <Categories />}
-
 				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
-					{nodes.map(
+					{categoryBlogPosts.post.map(
 						({
 							postId,
 							blogTitle,
@@ -125,4 +114,4 @@ const BlogTemplate = () => {
 	);
 };
 
-export default BlogTemplate;
+export default CategoryTemplate;

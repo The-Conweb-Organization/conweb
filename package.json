@@ -33,9 +33,11 @@
 		"@fortawesome/free-solid-svg-icons": "^5.15.4",
 		"@fortawesome/react-fontawesome": "^0.1.16",
 		"daisyui": "^1.24.3",
+		"flexsearch": "^0.7.21",
 		"gatsby": "^4.4.0",
 		"gatsby-plugin-fontawesome-css": "^1.2.0",
 		"gatsby-plugin-image": "^2.5.2",
+		"gatsby-plugin-local-search": "^2.0.1",
 		"gatsby-plugin-sharp": "^4.5.2",
 		"gatsby-remark-classes": "^1.0.2",
 		"gatsby-source-contentful": "^7.3.2",
@@ -46,7 +48,8 @@
 		"react-dom": "^17.0.2",
 		"react-intersection-observer": "^8.33.1",
 		"react-sticky-box": "^0.9.3",
-		"react-syntax-highlighter": "^15.4.5"
+		"react-syntax-highlighter": "^15.4.5",
+		"react-use-flexsearch": "^0.1.1"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.2",

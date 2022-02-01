@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { SearchQueryContext } from '../../../../hooks/useSearchQueryContext';
+import { useLocation } from '@reach/router';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faStream, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faStream, faTimes } from '@fortawesome/free-solid-svg-icons';
 import useTopNavigation from '../../../../hooks/useTopNavigation';
+import SearchBar from '../../../search/SearchBar';
 
 const Navbar = () => {
+	const { search } = useLocation();
+	const query = new URLSearchParams(search).get('search');
 	const [toggleMenu, setToggleMenu] = useState(false);
+	const [searchQuery, setSearchQuery] = useState(query || '');
 	const topNavigation = useTopNavigation();
 	const regex = /[a-zA-Z0-9]+/gm;
 	const logo = '../../../../assets/images/me.jpg';
+
+	const searchQueryCtx = useContext(SearchQueryContext);
+
+	useEffect(() => {
+		searchQueryCtx.setQuery(searchQuery);
+	}, []);
 
 	const onToggleMenuHandler = () => {
 		setToggleMenu(prevState => !prevState);
@@ -82,20 +94,10 @@ const Navbar = () => {
 						);
 					})}
 					<div className='order-first pb-8 md:order-none md:pb-0 md:pl-4 md:flex-auto md:w-full'>
-						<form>
-							<div className='form-control'>
-								<div className='relative'>
-									<input
-										className='input input-primary input-bordered w-full pr-16'
-										type='text'
-										placeholder='Search...'
-									/>
-									<button className='absolute top-0 right-0 rounded-l-none btn btn-ghost border-l-2 border-conBlueGreen-700'>
-										<FontAwesomeIcon icon={faSearch} />
-									</button>
-								</div>
-							</div>
-						</form>
+						<SearchBar
+							searchQuery={searchQuery}
+							setSearchQuery={setSearchQuery}
+						/>
 					</div>
 					<button
 						type='button'

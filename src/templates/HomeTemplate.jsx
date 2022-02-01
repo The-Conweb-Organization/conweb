@@ -22,17 +22,21 @@ const HomeTemplate = () => {
 									.slice(0, 1)
 									.map(
 										({
-											id: imageId,
-											blogFeaturedImage: { imageFeatured, imageAltText }
+											blogFeaturedImage: {
+												imageId,
+												imageFeatured,
+												imageAltText
+											}
 										}) => {
 											const image = getImage(imageFeatured);
 											return (
-												<GatsbyImage
-													key={imageId}
-													className='object-cover h-60 md:h-96 w-full rounded-lg'
-													image={image}
-													alt={imageAltText}
-												/>
+												<Fragment key={imageId}>
+													<GatsbyImage
+														className='object-cover h-60 md:h-96 w-full rounded-lg'
+														image={image}
+														alt={imageAltText}
+													/>
+												</Fragment>
 											);
 										}
 									)}

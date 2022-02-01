@@ -20,6 +20,7 @@ const useHomeTemplate = () => {
 						id
 					}
 					blogFeaturedImage {
+						imageId: id
 						imageFeatured {
 							gatsbyImageData(height: 500, placeholder: BLURRED, quality: 90)
 						}

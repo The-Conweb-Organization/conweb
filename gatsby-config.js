@@ -2,12 +2,14 @@ require('dotenv').config({
 	path: '.env'
 });
 
-const contentfulConfig = {
-	spaceId: process.env.CONTENTFUL_SPACE_ID,
-	accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+const envConfig = {
+	contentfulConfig: {
+		spaceId: process.env.CONTENTFUL_SPACE_ID,
+		accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+	}
 };
 
-const { spaceId, accessToken } = contentfulConfig;
+const { spaceId, accessToken } = envConfig.contentfulConfig;
 
 if (!spaceId || !accessToken) {
 	throw new Error(
@@ -49,6 +51,38 @@ module.exports = {
 					}
 				],
 				gfm: true
+			}
+		},
+		{
+			resolve: 'gatsby-plugin-local-search',
+			options: {
+				name: 'conwebContentfulSearch',
+				engine: 'flexsearch',
+				query: `{
+					allContentfulPost {
+						nodes {
+							blogTitle,
+							blogCategories {
+								categoryName
+								id
+							}
+							excerpt {
+								excerpt
+							}
+							id
+						}
+					}
+				}`,
+				ref: 'id',
+				index: ['blogTitle', 'blogCategories', 'excerpt'],
+				store: ['blogTitle', 'blogCategories', 'excerpt', 'id'],
+				normalizer: ({ data }) =>
+					data.allContentfulPost.nodes.map(node => ({
+						blogTitle: node.blogTitle,
+						blogCategories: node.blogCategories,
+						excerpt: node.excerpt,
+						id: node.id
+					}))
 			}
 		}
 	]
