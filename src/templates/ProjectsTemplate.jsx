@@ -1,14 +1,12 @@
 import React from 'react';
+import SectionContainer from '../components/ui/SectionContainer';
+import Heading from '../components/ui/Heading';
 
 const ProjectsTemplate = () => {
 	return (
-		<section>
-			<div className='mx-auto px-4 md:px-12 pt-12'>
-				<h2 className='text-center text-conOrange-200 font-bold text-5xl'>
-					Projects
-				</h2>
-			</div>
-		</section>
+		<SectionContainer>
+			<Heading headingType='h2'>Projects</Heading>
+		</SectionContainer>
 	);
 };
 

@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import { TemplateContext } from '../../hooks/useTemplateContext';
+import { useLocation } from '@reach/router';
 import { graphql } from 'gatsby';
 import PostTemplate from '../../templates/PostTemplate';
 
 const Post = ({ data: { contentfulPost } }) => {
+	const templateCtx = useContext(TemplateContext);
+	const location = useLocation();
+
+	useEffect(() => {
+		templateCtx.setPathname(location.pathname);
+	}, [templateCtx, location.pathname]);
+
 	return <PostTemplate blogPost={contentfulPost} />;
 };
 

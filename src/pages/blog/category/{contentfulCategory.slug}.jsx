@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import { TemplateContext } from '../../../hooks/useTemplateContext';
+import { useLocation } from '@reach/router';
 import { graphql } from 'gatsby';
 import CategoryTemplate from '../../../templates/CategoryTemplate';
 
 const CategoryPage = ({ data: { contentfulCategory } }) => {
+	const templateCtx = useContext(TemplateContext);
+	const location = useLocation();
+
+	useEffect(() => {
+		templateCtx.setPathname(location.pathname);
+	}, [templateCtx, location.pathname]);
+
 	return <CategoryTemplate categoryBlogPosts={contentfulCategory} />;
 };
 
