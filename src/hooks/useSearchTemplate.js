@@ -3,27 +3,16 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 const useSearchTemplate = () => {
 	const {
-		allContentfulPost: { nodes }
+		localSearchConwebContentfulSearch: { index, store }
 	} = useStaticQuery(graphql`
-		{
-			allContentfulPost {
-				nodes {
-					blogTitle
-					blogCategories {
-						categoryName
-						id
-					}
-					excerpt {
-						excerpt
-					}
-					id
-					gatsbyPath(filePath: "/blog/{contentfulPost.slug}")
-				}
+		query SearchQuery {
+			localSearchConwebContentfulSearch {
+				index
+				store
 			}
 		}
 	`);
-
-	return { nodes };
+	return { index, store };
 };
 
 export default useSearchTemplate;

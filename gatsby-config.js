@@ -70,17 +70,19 @@ module.exports = {
 								excerpt
 							}
 							id
+							gatsbyPath(filePath: "/blog/{contentfulPost.slug}")
 						}
 					}
 				}`,
 				ref: 'id',
 				index: ['blogTitle', 'blogCategories', 'excerpt'],
-				store: ['blogTitle', 'blogCategories', 'excerpt', 'id'],
+				store: ['blogTitle', 'blogCategories', 'excerpt', 'gatsbyPath', 'id'],
 				normalizer: ({ data }) =>
 					data.allContentfulPost.nodes.map(node => ({
 						blogTitle: node.blogTitle,
 						blogCategories: node.blogCategories,
 						excerpt: node.excerpt,
+						gatsbyPath: node.gatsbyPath,
 						id: node.id
 					}))
 			}
