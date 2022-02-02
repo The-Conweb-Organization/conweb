@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { graphql } from 'gatsby';
 import { SearchQueryContext } from '../hooks/useSearchQueryContext';
 import { useFlexSearch } from 'react-use-flexsearch';
 import useSearchQuery from '../hooks/useSearchQuery';
