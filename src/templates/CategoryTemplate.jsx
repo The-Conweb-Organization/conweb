@@ -7,6 +7,7 @@ import {
 	faLongArrowAltRight
 } from '@fortawesome/free-solid-svg-icons';
 import SectionContainer from '../components/ui/SectionContainer';
+import ContentContainer from '../components/ui/ContentContainer';
 import Heading from '../components/ui/Heading';
 
 const CategoryTemplate = ({ categoryBlogPosts }) => {
@@ -23,7 +24,7 @@ const CategoryTemplate = ({ categoryBlogPosts }) => {
 				</button>
 				<span>Result for '{categoryBlogPosts.categoryName}' Category:</span>
 			</Heading>
-			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+			<ContentContainer>
 				{categoryBlogPosts.post.map(
 					({
 						postId,
@@ -109,7 +110,7 @@ const CategoryTemplate = ({ categoryBlogPosts }) => {
 						);
 					}
 				)}
-			</div>
+			</ContentContainer>
 		</SectionContainer>
 	);
 };

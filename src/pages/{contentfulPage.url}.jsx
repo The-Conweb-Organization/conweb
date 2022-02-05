@@ -1,6 +1,4 @@
-import React, { useEffect, useContext } from 'react';
-import { TemplateContext } from '../hooks/useTemplateContext';
-import { useLocation } from '@reach/router';
+import React from 'react';
 import { graphql } from 'gatsby';
 import HomeTemplate from '../templates/HomeTemplate';
 import BlogTemplate from '../templates/BlogTemplate';
@@ -10,12 +8,6 @@ import SearchTemplate from '../templates/SearchTemplate';
 
 const Page = ({ data: { contentfulPage } }) => {
 	const { template } = contentfulPage;
-	const templateCtx = useContext(TemplateContext);
-	const location = useLocation();
-
-	useEffect(() => {
-		templateCtx.setPathname(location.pathname);
-	}, [location.pathname, templateCtx]);
 
 	const getTemplate = template => {
 		switch (template) {

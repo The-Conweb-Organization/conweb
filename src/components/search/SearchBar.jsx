@@ -1,4 +1,5 @@
 import React from 'react';
+import { navigate } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -7,8 +8,13 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
 		setSearchQuery(e.target.value);
 	};
 
+	const onSubmitHandler = e => {
+		e.preventDefault();
+		navigate(`/search/?search=${searchQuery}`);
+	};
+
 	return (
-		<form action='/search/' method='get' autoComplete='off'>
+		<form autoComplete='off' onSubmit={onSubmitHandler}>
 			<div className='form-control'>
 				<div className='relative'>
 					<input
@@ -16,8 +22,8 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
 						type='text'
 						placeholder='Search...'
 						value={searchQuery}
-						onChange={onInputHandler}
-						name='search'
+						onInput={onInputHandler}
+						// name='search'
 					/>
 					<button
 						type='submit'

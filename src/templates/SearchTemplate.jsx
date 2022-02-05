@@ -9,6 +9,7 @@ import {
 	faLongArrowAltLeft
 } from '@fortawesome/free-solid-svg-icons';
 import SectionContainer from '../components/ui/SectionContainer';
+import ContentContainer from '../components/ui/SectionContainer';
 import Heading from '../components/ui/Heading';
 
 const SearchTemplate = () => {
@@ -34,7 +35,7 @@ const SearchTemplate = () => {
 						: `Search results for: ${searchQueryCtx.query}`}
 				</span>
 			</Heading>
-			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-12'>
+			<ContentContainer>
 				{results.map(
 					({
 						id: postId,
@@ -82,7 +83,7 @@ const SearchTemplate = () => {
 						);
 					}
 				)}
-			</div>
+			</ContentContainer>
 		</SectionContainer>
 	);
 };

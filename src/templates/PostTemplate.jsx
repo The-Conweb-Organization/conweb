@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import StickyBox from 'react-sticky-box';
 import SectionContainer from '../components/ui/SectionContainer';
+import ContentContainer from '../components/ui/ContentContainer';
 import Heading from '../components/ui/Heading';
 
 const PostTemplate = ({ blogPost }) => {
@@ -41,7 +42,7 @@ const PostTemplate = ({ blogPost }) => {
 					<span>published at {blogPost.blogCreatedAt}</span>
 				</p>
 			</div>
-			<div className='sm:grid sm:grid-cols-6 gap-x-4'>
+			<ContentContainer>
 				<div className='col-span-2 hidden sm:block'>
 					<StickyBox
 						offsetTop={50}
@@ -103,7 +104,7 @@ const PostTemplate = ({ blogPost }) => {
 						)}
 					</div>
 				</div>
-			</div>
+			</ContentContainer>
 		</SectionContainer>
 	);
 };
