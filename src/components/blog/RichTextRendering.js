@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React /* useState, useEffect,  useRef*/ from 'react';
 // import { InView } from 'react-intersection-observer';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { /* useState, useEffect, */ Fragment } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { navigate } from 'gatsby';
 import RichTextRendering from '../components/blog/RichTextRendering';

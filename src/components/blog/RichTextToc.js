@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React /* useState, useEffect,  useRef*/ from 'react';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 

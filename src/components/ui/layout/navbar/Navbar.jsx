@@ -21,7 +21,7 @@ const Navbar = () => {
 
 	useEffect(() => {
 		searchQueryCtx.setQuery(searchQuery);
-	}, []);
+	}, [searchQuery, searchQueryCtx]);
 
 	const onToggleMenuHandler = () => {
 		setToggleMenu(prevState => !prevState);
