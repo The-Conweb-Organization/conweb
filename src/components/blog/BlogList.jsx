@@ -1,11 +1,15 @@
 import React from 'react';
 import BlogItem from './BlogItem';
 
-const BlogList = ({ blogList }) => {
+const BlogList = ({ blogList, isTopFiveArticles }) => {
 	return (
 		<>
 			{blogList.map(blogItem => (
-				<BlogItem key={blogItem.postId} blogItem={blogItem} />
+				<BlogItem
+					key={blogItem.postId}
+					blogItem={blogItem}
+					isTopFiveArticles={isTopFiveArticles}
+				/>
 			))}
 		</>
 	);

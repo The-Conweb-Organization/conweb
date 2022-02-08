@@ -70,7 +70,7 @@ module.exports = {
 								excerpt
 							}
 							id
-							gatsbyPath(filePath: "/blog/{contentfulPost.slug}")
+							gatsbyPath(filePath: "/blog/post/{contentfulPost.slug}")
 						}
 					}
 				}`,

@@ -6,7 +6,7 @@ const ContentContainer = ({ children }) => {
 
 	if (pathname === '/') {
 		return (
-			<div className='grid grid-cols-1 md:grid-cols-2 gap-8  md:border-2 border-conBlueGreen-700 md:p-4 mt-12 rounded-lg'>
+			<div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:p-4 mt-12 rounded-lg relative'>
 				{children}
 			</div>
 		);

@@ -13,9 +13,7 @@ const HomeTemplate = () => {
 			<SectionContainer>
 				<Heading headingType='h2'>Most recent blog article</Heading>
 				<ContentContainer>
-					{/* <div className='w-full flex justify-center drop-shadow-md'> */}
 					<BlogList blogList={blogDataCtx.blogData.slice(0, 1)} />
-					{/* </div> */}
 				</ContentContainer>
 			</SectionContainer>
 
@@ -24,7 +22,10 @@ const HomeTemplate = () => {
 					Top 5 recent blog articles
 				</h2>
 				<ContentContainer>
-					<BlogList blogList={blogDataCtx.blogData.slice(1, 6)} />
+					<BlogList
+						isTopFiveArticles={true}
+						blogList={blogDataCtx.blogData.slice(1, 6)}
+					/>
 
 					<div className='my-12 flex justify-center'>
 						<button

@@ -5,7 +5,7 @@ import { useLocation } from '@reach/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 
-const BlogItem = ({ blogItem }) => {
+const BlogItem = ({ blogItem, isTopFiveArticles }) => {
 	const { pathname } = useLocation();
 
 	const {
@@ -93,10 +93,16 @@ const BlogItem = ({ blogItem }) => {
 	} else {
 		postContent = (
 			<>
-				<div className='w-full flex justify-center drop-shadow-md'>
-					<figure className='border-2 border-conBlueGreen-700 h-fit w-full rounded-lg p-2 drop-shadow-md'>
+				<div
+					className={`flex col-span-2 md:col-span-1 justify-self-center drop-shadow-md w-full  ${
+						isTopFiveArticles && 'md:w-1/2'
+					}`}
+				>
+					<figure className='border-2 border-conBlueGreen-700 h-fit w-fit rounded-lg p-2 drop-shadow-md'>
 						<GatsbyImage
-							className='object-cover h-full w-full rounded-lg'
+							className={`object-cover ${
+								isTopFiveArticles && 'h-40'
+							} rounded-lg`}
 							image={image}
 							alt={imageAltText}
 						/>
@@ -114,7 +120,11 @@ const BlogItem = ({ blogItem }) => {
 						</figcaption>
 					</figure>
 				</div>
-				<div className='flex flex-col h-full bg-conBlueGreen-700 p-2 gap-4 drop-shadow-md rounded'>
+				<div
+					className={`flex flex-col col-span-2 md:col-span-1 h-full ${
+						!isTopFiveArticles && 'justify-center'
+					} bg-conBlueGreen-700 p-2 gap-4 drop-shadow-md rounded`}
+				>
 					<h3 className='text-4xl md:text-2xl text-center text-conOrange-200 font-bold'>
 						{blogTitle}
 					</h3>
@@ -124,7 +134,11 @@ const BlogItem = ({ blogItem }) => {
 							<span>published at {blogCreatedAt}</span>
 						</p>
 					</div>
-					<ul className='flex justify-center w-full flex-wrap mt-12'>
+					<ul
+						className={`flex justify-center w-full flex-wrap ${
+							!isTopFiveArticles ? 'mt-12' : ''
+						}`}
+					>
 						{blogCategories.map(({ categoryId, categoryName }) => (
 							<Fragment key={categoryId}>
 								<li className='bg-conOrange-200 text-center text-xs text-conBlueGreen-700 py-0.5 px-1 mt-2 mr-2 rounded'>
@@ -133,20 +147,35 @@ const BlogItem = ({ blogItem }) => {
 							</Fragment>
 						))}
 					</ul>
+					{isTopFiveArticles && (
+						<div className='flex justify-center w-full'>
+							<button
+								type='button'
+								className='btn btn-block btn-outline btn-sm border-conOrange-200 text-conOrange-200 hover:bg-conOrange-200 hover:border-transparent hover:text-conBlueGreen-700 md:w-fit'
+								onClick={() => navigate(getPostPath)}
+							>
+								Read More&emsp;
+								<FontAwesomeIcon icon={faLongArrowAltRight} />
+							</button>
+						</div>
+					)}
 				</div>
-				<div className='w-full'>
-					<p className='text-tail-900 text-center p-1.5 rounded'>{excerpt}</p>
-					<div className='flex justify-center w-full relative'>
-						<button
-							type='button'
-							className='btn btn-block btn-outline btn-sm border-conBlueGreen-700 text-conBlueGreen-700 hover:bg-conBlue-700 hover:border-transparent hover:text-conOrange-200 md:w-fit'
-							onClick={() => navigate(getPostPath)}
-						>
-							Read More&emsp;
-							<FontAwesomeIcon icon={faLongArrowAltRight} />
-						</button>
+				{!isTopFiveArticles && (
+					<div className=' w-full md:w-1/2 col-span-2 justify-self-center'>
+						<p className='text-tail-900 text-center p-1.5 rounded'>{excerpt}</p>
+
+						<div className='flex justify-center w-full relative'>
+							<button
+								type='button'
+								className='btn btn-block btn-outline btn-sm border-conBlueGreen-700 text-conBlueGreen-700 hover:bg-conBlue-700 hover:border-transparent hover:text-conOrange-200 md:w-fit'
+								onClick={() => navigate(getPostPath)}
+							>
+								Read More&emsp;
+								<FontAwesomeIcon icon={faLongArrowAltRight} />
+							</button>
+						</div>
 					</div>
-				</div>
+				)}
 			</>
 		);
 	}

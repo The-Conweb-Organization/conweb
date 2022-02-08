@@ -68,7 +68,7 @@ export const queryCategory = graphql`
 			excerpt {
 				excerpt
 			}
-			getPostPath: gatsbyPath(filePath: "/blog/{contentfulPost.slug}")
+			getPostPath: gatsbyPath(filePath: "/blog/post/{contentfulPost.slug}")
 		}
 	}
 `;
