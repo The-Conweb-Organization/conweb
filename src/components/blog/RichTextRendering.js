@@ -83,6 +83,7 @@ const RichTextRendering = ({ blogContent /* onObserveCallback */ }) => {
 				return <ul className='list-disc pl-4'>{children}</ul>;
 			},
 			[BLOCKS.EMBEDDED_ENTRY]: node => {
+				console.log(JSON.stringify(blogContent, null, 2));
 				const typename = node.data.target.__typename;
 				const codeLanguage = node.data.target.codeLanguage;
 

@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { BlogDataContext } from '../hooks/useBlogDataContext';
+import React from 'react';
 import { navigate } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
@@ -8,8 +7,9 @@ import ContentContainer from '../components/ui/ContentContainer';
 import Heading from '../components/ui/Heading';
 import BlogList from '../components/blog/BlogList';
 
-const CategoryTemplate = ({ categoryBlogPosts }) => {
-	const blogDataCtx = useContext(BlogDataContext);
+const CategoryTemplate = ({ category: { categoryName, post } }) => {
+	const filteredCategoryBlogPosts = post;
+
 	return (
 		<SectionContainer>
 			<Heading headingType='h2'>
@@ -21,10 +21,10 @@ const CategoryTemplate = ({ categoryBlogPosts }) => {
 					<FontAwesomeIcon icon={faLongArrowAltLeft} />
 					&ensp;Back
 				</button>
-				<span>Result for '{categoryBlogPosts.categoryName}' Category:</span>
+				<span>Result for '{categoryName}' Category:</span>
 			</Heading>
 			<ContentContainer>
-				<BlogList blogList={blogDataCtx.blogData} />
+				<BlogList blogList={filteredCategoryBlogPosts} />
 			</ContentContainer>
 		</SectionContainer>
 	);

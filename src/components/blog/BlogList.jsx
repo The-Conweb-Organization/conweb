@@ -4,13 +4,14 @@ import BlogItem from './BlogItem';
 const BlogList = ({ blogList, isTopFiveArticles }) => {
 	return (
 		<>
-			{blogList.map(blogItem => (
-				<BlogItem
-					key={blogItem.postId}
-					blogItem={blogItem}
-					isTopFiveArticles={isTopFiveArticles}
-				/>
-			))}
+			{blogList &&
+				blogList.map(blogItem => (
+					<BlogItem
+						key={blogItem.postId}
+						blogItem={blogItem}
+						isTopFiveArticles={isTopFiveArticles}
+					/>
+				))}
 		</>
 	);
 };

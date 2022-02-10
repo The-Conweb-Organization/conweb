@@ -12,7 +12,7 @@ export default Post;
 export const query = graphql`
 	query ($slug: String) {
 		contentfulPost(slug: { eq: $slug }) {
-			...BlogData
+			...BlogPost
 		}
 	}
 `;

@@ -1,9 +1,7 @@
 import { graphql } from 'gatsby';
 
-export default useData;
-
-export const queryPost = graphql`
-	fragment BlogData on ContentfulPost {
+export const queryPostData = graphql`
+	fragment BlogPostData on ContentfulPost {
 		blogTitle
 		slug
 		blogCategories {
@@ -18,13 +16,42 @@ export const queryPost = graphql`
 			photographerUrl
 			photographer
 			imageFeatured {
-				gatsbyImageData(width: 1000)
+				gatsbyImageData(height: 500, width: 1000, quality: 90)
 			}
 			imageAltText
 		}
 		excerpt {
 			excerpt
 		}
+	}
+`;
+
+export const queryProjectData = graphql`
+	fragment ProjectData on ContentfulProject {
+		projectTitle
+		projectTechnology
+		projectCreatedAt
+		projectEndAt
+		projectLive
+		projectGithubRepo
+		projectDescription {
+			projectDescription
+		}
+		projectId: id
+		projectImage {
+			gatsbyImageData(
+				width: 1000
+				quality: 90
+				placeholder: BLURRED
+				height: 500
+			)
+		}
+	}
+`;
+
+export const queryPost = graphql`
+	fragment BlogPost on ContentfulPost {
+		...BlogPostData
 		blogContent {
 			raw
 			references {
@@ -45,29 +72,10 @@ export const queryPost = graphql`
 `;
 
 export const queryCategory = graphql`
-	fragment CategoryData on ContentfulCategory {
+	fragment BlogCategory on ContentfulCategory {
 		categoryName
 		post {
-			blogAuthor {
-				authorName
-			}
-			blogCategories {
-				categoryName
-				categoryId: id
-			}
-			blogTitle
-			postId: id
-			blogFeaturedImage {
-				imageFeatured {
-					gatsbyImageData(height: 500, width: 1000, quality: 90)
-				}
-				photographer
-				photographerUrl
-				imageAltText
-			}
-			excerpt {
-				excerpt
-			}
+			...BlogPostData
 			getPostPath: gatsbyPath(filePath: "/blog/post/{contentfulPost.slug}")
 		}
 	}

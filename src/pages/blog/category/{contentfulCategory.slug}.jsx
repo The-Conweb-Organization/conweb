@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import CategoryTemplate from '../../../templates/CategoryTemplate';
 
 const CategoryPage = ({ data: { contentfulCategory } }) => {
-	return <CategoryTemplate categoryBlogPosts={contentfulCategory} />;
+	return <CategoryTemplate category={contentfulCategory} />;
 };
 
 export default CategoryPage;
@@ -12,7 +12,7 @@ export default CategoryPage;
 export const query = graphql`
 	query ($id: String) {
 		contentfulCategory(id: { eq: $id }) {
-			...CategoryData
+			...BlogCategory
 		}
 	}
 `;

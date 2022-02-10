@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { BlogDataContext } from '../hooks/useBlogDataContext';
+import { BlogProjectDataContext } from '../hooks/useBlogProjectDataContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import Categories from '../components/blog/category/Categories';
@@ -9,7 +9,7 @@ import Heading from '../components/ui/Heading';
 import BlogList from '../components/blog/BlogList';
 
 const BlogTemplate = () => {
-	const blogDataCtx = useContext(BlogDataContext);
+	const blogProjectDataCtx = useContext(BlogProjectDataContext);
 	const [showFiltering, setShowFiltering] = useState(false);
 
 	const showFilteringHandler = () => {
@@ -31,7 +31,7 @@ const BlogTemplate = () => {
 			{showFiltering && <Categories />}
 
 			<ContentContainer>
-				<BlogList blogList={blogDataCtx.blogData} />
+				<BlogList blogList={blogProjectDataCtx.blogData} />
 			</ContentContainer>
 		</SectionContainer>
 	);

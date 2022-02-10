@@ -7,7 +7,7 @@ const useBlogData = () => {
 		query PostDataQuery {
 			allContentfulPost(sort: { fields: [blogCreatedAt], order: DESC }) {
 				nodes {
-					...BlogData
+					...BlogPost
 				}
 			}
 		}

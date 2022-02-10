@@ -13,7 +13,8 @@ const ContentContainer = ({ children }) => {
 	} else if (
 		(pathname.startsWith('/blog') && !pathname.startsWith('/blog/post')) ||
 		pathname.startsWith('/blog/category') ||
-		pathname.startsWith('/search')
+		pathname.startsWith('/search') ||
+		pathname.startsWith('/project')
 	) {
 		return (
 			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
