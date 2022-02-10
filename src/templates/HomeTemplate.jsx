@@ -42,9 +42,9 @@ const HomeTemplate = () => {
 			<SectionContainer>
 				<Heading headingType='h2'>Most recent project</Heading>
 				<ContentContainer>
-					{/* <ProjectList
+					<ProjectList
 						projectList={blogProjectDataCtx.projectData.slice(0, 1)}
-					/> */}
+					/>
 				</ContentContainer>
 			</SectionContainer>
 
@@ -53,10 +53,10 @@ const HomeTemplate = () => {
 					Top 5 recent projects
 				</h2>
 				<ContentContainer>
-					{/* <ProjectList
+					<ProjectList
 						isTopFiveArticles={true}
 						projectList={blogProjectDataCtx.projectData.slice(1, 6)}
-					/> */}
+					/>
 					<div className='my-12 flex justify-center'>
 						<button
 							type='button'

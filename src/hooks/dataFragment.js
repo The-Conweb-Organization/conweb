@@ -38,6 +38,7 @@ export const queryProjectData = graphql`
 			projectDescription
 		}
 		projectId: id
+		slug
 		projectImage {
 			gatsbyImageData(
 				width: 1000
