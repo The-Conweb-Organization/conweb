@@ -53,18 +53,16 @@ const Navbar = () => {
 					</button>
 				)}
 				<div className='flex justify-center absolute md:static top-4 left-4'>
-					{topNavigation && !topNavigation.at(0).url.match(regex) && (
-						<Link to={`${topNavigation.at(0).url}`}>
-							<StaticImage
-								src={logo}
-								width={75}
-								height={75}
-								placeholder='blurred'
-								alt='Logo'
-								className='rounded-lg'
-							/>
-						</Link>
-					)}
+					<Link to={'/'}>
+						<StaticImage
+							src={logo}
+							width={75}
+							height={75}
+							placeholder='blurred'
+							alt='Logo'
+							className='rounded-lg'
+						/>
+					</Link>
 				</div>
 				<ul
 					className={`transition-all duration-150 ease-in-out flex flex-col md:flex-row md:items-center md:w-full md:mx-16 md:visible ${
