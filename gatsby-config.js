@@ -29,6 +29,7 @@ module.exports = {
 		'gatsby-transformer-sharp',
 		'gatsby-plugin-postcss',
 		'gatsby-plugin-fontawesome-css',
+		'gatsby-plugin-gatsby-cloud',
 		{
 			resolve: 'gatsby-source-contentful',
 			options: {
