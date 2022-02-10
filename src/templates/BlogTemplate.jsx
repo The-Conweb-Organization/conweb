@@ -18,7 +18,7 @@ const BlogTemplate = () => {
 
 	return (
 		<SectionContainer>
-			<Heading headingType='h2'>
+			<Heading headingType='h2' isBlogPage={true}>
 				<span className='col-span-3'>All or filtered blog articles</span>
 				<button
 					onClick={showFilteringHandler}

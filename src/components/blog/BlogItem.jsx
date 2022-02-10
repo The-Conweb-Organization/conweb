@@ -34,10 +34,10 @@ const BlogItem = ({ blogItem, isTopFiveArticles }) => {
 	) {
 		postContent = (
 			<div className='grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6'>
-				<div className='lg:col-span-2 w-full flex justify-center drop-shadow-md'>
+				<div className='lg:col-span-2 w-full drop-shadow-md'>
 					<figure className='border-2 border-conBlueGreen-700 h-fit w-full rounded-lg p-2 drop-shadow-md'>
 						<GatsbyImage
-							className='object-cover h-full w-full rounded-lg'
+							className='object-cover rounded-lg'
 							image={image}
 							alt={imageAltText}
 						/>
@@ -76,8 +76,10 @@ const BlogItem = ({ blogItem, isTopFiveArticles }) => {
 					</ul>
 				</div>
 				<div className='sm:col-span-2 w-full'>
-					<p className='text-tail-900 text-center p-1.5 rounded'>{excerpt}</p>
-					<div className='flex justify-center w-full relative'>
+					<p className='text-tail-900 text-center h-24 p-1.5 rounded line-clamp-4'>
+						{excerpt}
+					</p>
+					<div className='flex justify-center w-full relative mt-4'>
 						<button
 							type='button'
 							className='btn btn-block btn-outline btn-sm border-conBlueGreen-700 text-conBlueGreen-700 hover:bg-conBlue-700 hover:border-transparent hover:text-conOrange-200 md:w-fit'

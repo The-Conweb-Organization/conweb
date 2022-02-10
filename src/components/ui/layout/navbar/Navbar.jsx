@@ -91,7 +91,7 @@ const Navbar = () => {
 							</li>
 						);
 					})}
-					<div className='order-first pb-8 md:order-none md:pb-0 md:pl-4 md:flex-auto md:w-full'>
+					<div className='order-first mt-4 mb-4 md:order-none md:mt-0 md:mb-0 md:pl-4 md:pr-4 md:flex-auto md:w-full'>
 						<SearchBar
 							searchQuery={searchQuery}
 							setSearchQuery={setSearchQuery}

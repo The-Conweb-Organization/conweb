@@ -1,10 +1,11 @@
-import React, { useContext, Fragment } from 'react';
+import React, { useContext } from 'react';
+import { navigate } from 'gatsby';
 import { BlogProjectDataContext } from '../hooks/useBlogProjectDataContext';
 import SectionContainer from '../components/ui/SectionContainer';
 import ContentContainer from '../components/ui/ContentContainer';
 import Heading from '../components/ui/Heading';
 import BlogList from '../components/blog/BlogList';
-import ProjectList from '../components/projects/ProjectList';
+import ProjectList from '../components/project/ProjectList';
 
 const HomeTemplate = () => {
 	const blogProjectDataCtx = useContext(BlogProjectDataContext);
@@ -28,9 +29,10 @@ const HomeTemplate = () => {
 						blogList={blogProjectDataCtx.blogData.slice(1, 6)}
 					/>
 
-					<div className='my-12 flex justify-center'>
+					<div className='my-12 flex justify-center md:col-span-2'>
 						<button
 							type='button'
+							onClick={() => navigate('/blog')}
 							className='btn btn-primary bg-conOrange-200 hover:bg-conOrange-300 border-transparent hover:border-transparent text-conBlueGreen-700'
 						>
 							See all blog articles&emsp;
@@ -57,9 +59,10 @@ const HomeTemplate = () => {
 						isTopFiveArticles={true}
 						projectList={blogProjectDataCtx.projectData.slice(1, 6)}
 					/>
-					<div className='my-12 flex justify-center'>
+					<div className='my-12 flex justify-center md:col-span-2'>
 						<button
 							type='button'
+							onClick={() => navigate('/projects')}
 							className='btn btn-primary bg-conOrange-200 hover:bg-conOrange-300 border-transparent hover:border-transparent text-conBlueGreen-700'
 						>
 							See all projects&emsp;

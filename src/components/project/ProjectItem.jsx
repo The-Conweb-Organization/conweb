@@ -59,10 +59,10 @@ const BlogItem = ({ projectItem, isTopFiveArticles }) => {
 					<p className='text-tail-900 text-center p-1.5 rounded'>
 						{projectDescription}
 					</p>
-					<div className='flex justify-center w-full relative'>
+					<div className='flex flex-col items-center w-full relative'>
 						<a
 							href={projectLive}
-							className='btn btn-block btn-outline btn-sm border-conBlueGreen-700 text-conBlueGreen-700 hover:bg-conBlue-700 hover:border-transparent hover:text-conOrange-200 md:w-fit'
+							className='btn btn-block btn-outline btn-sm border-conBlueGreen-700 text-conBlueGreen-700 hover:bg-conBlue-700 hover:border-transparent hover:text-conOrange-200 md:w-fit mb-4'
 							target='_blank'
 							rel='nofollow noreferrer'
 						>
@@ -128,10 +128,10 @@ const BlogItem = ({ projectItem, isTopFiveArticles }) => {
 						))}
 					</ul>
 					{isTopFiveArticles && (
-						<div className='flex justify-center w-full'>
+						<div className='flex flex-col lg:flex-row items-center justify-center w-full'>
 							<a
 								href={projectLive}
-								className='btn btn-block btn-outline btn-sm border-conOrange-200 text-conOrange-200 hover:bg-conOrange-200 hover:border-transparent hover:text-conBlueGreen-700 md:w-fit'
+								className='btn btn-block btn-outline btn-sm border-conOrange-200 text-conOrange-200 hover:bg-conOrange-200 hover:border-transparent hover:text-conBlueGreen-700 md:w-fit mb-4 lg:mb-0 lg:mr-4'
 								target='_blank'
 								rel='nofollow noreferrer'
 							>
@@ -156,10 +156,10 @@ const BlogItem = ({ projectItem, isTopFiveArticles }) => {
 							{projectDescription}
 						</p>
 
-						<div className='flex justify-center w-full relative'>
+						<div className='flex flex-col md:flex-row items-center justify-center w-full relative'>
 							<a
 								href={projectLive}
-								className='btn btn-block btn-outline btn-sm border-conBlueGreen-700 text-conBlueGreen-700 hover:bg-conBlue-700 hover:border-transparent hover:text-conOrange-200 md:w-fit'
+								className='btn btn-block btn-outline btn-sm border-conBlueGreen-700 text-conBlueGreen-700 hover:bg-conBlue-700 hover:border-transparent hover:text-conOrange-200 md:w-fit mb-4 md:mb-0 md:mr-4'
 								target='_blank'
 								rel='nofollow noreferrer'
 							>
