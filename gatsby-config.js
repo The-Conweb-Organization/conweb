@@ -20,7 +20,10 @@ if (!spaceId || !accessToken) {
 module.exports = {
 	siteMetadata: {
 		title: 'Conweb',
-		description: 'Showcase for web and tech related blog articles and projects.'
+		titleTemplate: '%s - conweb.tech',
+		description:
+			'Showcase for web and tech related blog articles and projects.',
+		url: 'https://conweb.tech'
 	},
 	pathPrefix: '/',
 	plugins: [
@@ -30,6 +33,7 @@ module.exports = {
 		'gatsby-plugin-postcss',
 		'gatsby-plugin-fontawesome-css',
 		'gatsby-plugin-gatsby-cloud',
+		'gatsby-plugin-react-helmet',
 		{
 			resolve: 'gatsby-source-contentful',
 			options: {
