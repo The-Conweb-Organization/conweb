@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStream, faTimes } from '@fortawesome/free-solid-svg-icons';
 import useTopNavigation from '../../../../hooks/useTopNavigation';
 import SearchBar from '../../../search/SearchBar';
-import { useShowMenu } from '../../../../hooks/useMenu';
+import { useShowMenu } from '../../../../hooks/useMenuAndInfo';
 
 const Navbar = () => {
 	const { search } = useLocation();

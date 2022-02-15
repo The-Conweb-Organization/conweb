@@ -7,13 +7,19 @@ import SectionContainer from '../components/ui/SectionContainer';
 import ContentContainer from '../components/ui/ContentContainer';
 import Heading from '../components/ui/Heading';
 import BlogList from '../components/blog/BlogList';
+import { useShowFilter } from '../hooks/useMenuAndInfo';
 
 const BlogTemplate = () => {
 	const blogProjectDataCtx = useContext(BlogProjectDataContext);
-	const [showFiltering, setShowFiltering] = useState(false);
+	const { isShowFilter } = useShowFilter();
+	const [showFiltering, setShowFiltering] = useState({ isShowFilter });
 
 	const showFilteringHandler = () => {
-		setShowFiltering(prevState => !prevState);
+		setShowFiltering(prevState => ({ ...prevState, isShowFilter: true }));
+	};
+
+	const hideFilteringHandler = () => {
+		setShowFiltering(prevState => ({ ...prevState, isShowFilter: false }));
 	};
 
 	return (
@@ -21,14 +27,18 @@ const BlogTemplate = () => {
 			<Heading headingType='h2' isBlogPage={true}>
 				<span className='col-span-3'>All or filtered blog articles</span>
 				<button
-					onClick={showFilteringHandler}
+					onClick={
+						!showFiltering.isShowFilter
+							? showFilteringHandler
+							: hideFilteringHandler
+					}
 					type='button'
 					className='btn bg-conBlueGreen-700 text-conOrange-200 text-2xl w-fit justify-self-end'
 				>
 					<FontAwesomeIcon icon={faSlidersH} />
 				</button>
 			</Heading>
-			{showFiltering && <Categories />}
+			{showFiltering.isShowFilter && <Categories />}
 
 			<ContentContainer>
 				<BlogList blogList={blogProjectDataCtx.blogData} />
