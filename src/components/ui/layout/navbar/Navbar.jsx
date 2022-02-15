@@ -22,8 +22,9 @@ const Navbar = () => {
 		isShowMenu,
 		isChangeButton
 	});
-	let menu,
-		button = '';
+
+	let menu = '';
+	let button = '';
 
 	useEffect(() => {
 		searchQueryCtx.setQuery(searchQuery);
@@ -63,11 +64,19 @@ const Navbar = () => {
 	};
 
 	const onHideMenuHandler = () => {
-		setNav(prevState => ({
-			...prevState,
-			isShowMenu: false,
-			isChangeButton: false
-		}));
+		if (window.innerWidth <= 768) {
+			setNav(prevState => ({
+				...prevState,
+				isShowMenu: false,
+				isChangeButton: false
+			}));
+		} else {
+			setNav(prevState => ({
+				...prevState,
+				isShowMenu: true,
+				isChangeButton: false
+			}));
+		}
 	};
 
 	if (!nav.isShowMenu) {
