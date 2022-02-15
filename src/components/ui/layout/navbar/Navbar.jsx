@@ -7,47 +7,93 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStream, faTimes } from '@fortawesome/free-solid-svg-icons';
 import useTopNavigation from '../../../../hooks/useTopNavigation';
 import SearchBar from '../../../search/SearchBar';
-import { useShowNavbar, useShowMobileMenu } from '../../../../hooks/useMenu';
+import { useShowMenu } from '../../../../hooks/useMenu';
 
 const Navbar = () => {
-	const [isShowNavbar, setIsShowNavbar] = useShowNavbar();
-	const { mobileMenu, changeButton } = useShowMobileMenu();
 	const { search } = useLocation();
 	const query = new URLSearchParams(search).get('search');
 	const [searchQuery, setSearchQuery] = useState(query || '');
 	const topNavigation = useTopNavigation();
 	const regex = /[a-zA-Z0-9]+/gm;
 	const logo = '../../../../assets/images/me.jpg';
-
 	const searchQueryCtx = useContext(SearchQueryContext);
+	const { isShowMenu, isChangeButton } = useShowMenu();
+	const [nav, setNav] = useState({
+		isShowMenu,
+		isChangeButton
+	});
 
-	const [isShowMobileMenu, setIsShowMobileMenu] = mobileMenu;
-	const [isChangeButton, setIsChangeButton] = changeButton;
+	useEffect(() => {
+		searchQueryCtx.setQuery(searchQuery);
+	}, [searchQuery, searchQueryCtx]);
+
+	useEffect(() => {
+		if (window.innerWidth <= 768) {
+			setNav(prevState => ({
+				...prevState,
+				isShowMenu: false
+			}));
+		}
+
+		const viewportHandler = () => {
+			if (window.innerWidth > 768) {
+				setNav(prevState => ({
+					...prevState,
+					isShowMenu: true
+				}));
+			} else {
+				setNav(prevState => ({
+					...prevState,
+					isShowMenu: false
+				}));
+			}
+		};
+
+		window.addEventListener('resize', viewportHandler);
+	}, []);
 
 	let menu,
 		button = '';
 
-	const onToggleMenuHandler = () => {
-		setIsShowMobileMenu(prevState => !prevState);
-		setIsChangeButton(prevState => !prevState);
+	const onShowMenuHandler = () => {
+		setNav(prevState => ({
+			...prevState,
+			isShowMenu: true,
+			isChangeButton: true
+		}));
 	};
 
-	if (!isShowNavbar) {
+	const onHideMenuHandler = () => {
+		setNav(prevState => ({
+			...prevState,
+			isShowMenu: false,
+			isChangeButton: false
+		}));
+	};
+
+	if (!nav.isShowMenu) {
 		button = (
 			<button
 				type='button'
 				className='visible md:invisible btn btn-square bg-conBlueGreen-800 active:bg-conBlueGreen-800 active:border-transparent border-transparent absolute top-6 right-6'
-				onClick={onToggleMenuHandler}
+				onClick={onShowMenuHandler}
 			>
-				<FontAwesomeIcon
-					className='text-xl'
-					icon={!isChangeButton ? faStream : faTimes}
-				/>
+				<FontAwesomeIcon className='text-xl' icon={faStream} />
+			</button>
+		);
+	} else {
+		button = (
+			<button
+				type='button'
+				className='visible md:invisible btn btn-square bg-conBlueGreen-800 active:bg-conBlueGreen-800 active:border-transparent border-transparent absolute top-6 right-6'
+				onClick={onHideMenuHandler}
+			>
+				<FontAwesomeIcon className='text-xl' icon={faTimes} />
 			</button>
 		);
 	}
 
-	if (isShowNavbar || isShowMobileMenu) {
+	if (nav.isShowMenu) {
 		menu = (
 			<ul className='flex flex-col md:flex-row md:items-center md:w-full md:mx-16 md:visible'>
 				{topNavigation.map((item, idx) => {
@@ -87,22 +133,6 @@ const Navbar = () => {
 			</ul>
 		);
 	}
-
-	useEffect(() => {
-		searchQueryCtx.setQuery(searchQuery);
-	}, [searchQuery, searchQueryCtx]);
-
-	useEffect(() => {
-		const viewportHandler = () => {
-			if (window.innerWidth >= 768) {
-				setIsShowNavbar(true);
-			} else {
-				setIsShowNavbar(false);
-			}
-		};
-
-		window.addEventListener('resize', viewportHandler);
-	}, [setIsShowNavbar]);
 
 	return (
 		<nav className='bg-conBlueGreen-700 relative'>
