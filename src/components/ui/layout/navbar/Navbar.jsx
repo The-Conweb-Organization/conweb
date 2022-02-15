@@ -22,6 +22,8 @@ const Navbar = () => {
 		isShowMenu,
 		isChangeButton
 	});
+	let menu,
+		button = '';
 
 	useEffect(() => {
 		searchQueryCtx.setQuery(searchQuery);
@@ -51,9 +53,6 @@ const Navbar = () => {
 
 		window.addEventListener('resize', viewportHandler);
 	}, []);
-
-	let menu,
-		button = '';
 
 	const onShowMenuHandler = () => {
 		setNav(prevState => ({
@@ -103,6 +102,7 @@ const Navbar = () => {
 							<Link
 								className='btn btn-primary bg-conOrange-200 hover:bg-conOrange-300 border-transparent hover:border-transparent text-conBlueGreen-700 w-full'
 								to={`/`}
+								onClick={onHideMenuHandler}
 							>
 								{title}
 							</Link>
@@ -112,6 +112,7 @@ const Navbar = () => {
 							<Link
 								className='btn btn-primary bg-conOrange-200 hover:bg-conOrange-300 border-transparent hover:border-transparent text-conBlueGreen-700 w-full'
 								to={`/${url}`}
+								onClick={onHideMenuHandler}
 							>
 								{title}
 							</Link>

@@ -6,7 +6,7 @@ const Categories = () => {
 	const { nodes } = useCategory();
 
 	return (
-		<div className='flex justify-center bg-conBlueGreen-700 min-h-fit w-full md:w-2/4 m-auto rounded-lg mb-12 drop-shadow-md'>
+		<div className='flex justify-center bg-conBlueGreen-700 min-h-fit w-full md:w-2/4 m-auto rounded-lg my-12 drop-shadow-md'>
 			<div className='w-full md:w-1/4 h-fit py-4'>
 				<h3 className='text-4xl md:text-2xl text-center text-conOrange-200 font-bold'>
 					Categories
