@@ -1,3 +1,12 @@
+const withOpacity = variableName => {
+	return ({ opacityValue }) => {
+		if (opacityValue !== undefined) {
+			return `rgba(var(${variableName}), ${opacityValue})`;
+		}
+		return `rgba(var${variableName})`;
+	};
+};
+
 module.exports = {
 	content: ['./public/**/*.html', './src/**/*.{js,jsx,ts,tsx,vue}'],
 	theme: {
@@ -30,12 +39,16 @@ module.exports = {
 				},
 				conBlue: '#F1F8F9'
 			},
-			// fontSize: {
-			// 	conH1: 'clamp(3.94rem, 3.7533rem + 0.8296vw, 4.5rem)',
-			// 	conH2: 'clamp(2.95rem, 2.8067rem + 0.6370vw, 3.38rem)',
-			// 	conH3: 'clamp(1.97rem, 1.8767rem + 0.4148vw, 2.25rem)',
-			// 	conH4: 'clamp(1rem, 0.9583rem + 0.1852vw, 1.125rem)'
-			// }
+			backgroundColor: {
+				primary: withOpacity('--color-bg-primary'),
+				secondary: withOpacity('--color-bg-secondary'),
+				accent: withOpacity('--color-accent')
+			},
+			textColor: {
+				primary: withOpacity('--color-text-primary'),
+				secondary: withOpacity('--color-text-secondary'),
+				accent: withOpacity('--color-accent')
+			},
 			fontSize: {
 				conH1: 'clamp(3.94rem, 3.7533vw, 4.5rem)',
 				conH2: 'clamp(2.95rem, 2.8067vw, 3.38rem)',
