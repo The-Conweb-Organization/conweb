@@ -28,7 +28,7 @@ const PostTemplate = ({ blogPost }) => {
 			<Heading headingType='h1'>
 				<button
 					type='button'
-					className='btn bg-conBlueGreen-700 text-conOrange-200 text-2xl w-fit'
+					className='btn btn-sm bg-conBlueGreen-700 text-conOrange-200 text-2xl w-fit'
 					onClick={() => navigate(-1)}
 				>
 					<FontAwesomeIcon icon={faLongArrowAltLeft} />
@@ -37,8 +37,8 @@ const PostTemplate = ({ blogPost }) => {
 				<span>{blogPost.blogTitle}</span>
 			</Heading>
 			<div className='flex justify-center'>
-				<p className='border border-conOrange-200 text-conOrange-200 text-tail-900 text-xs py-0.5 px-1 rounded'>
-					<span className='mt-auto'>{blogPost.blogAuthor.authorName}</span> |
+				<p className='border border-conOrange-200 text-conOrange-200 text-xs py-0.5 px-1 rounded mb-6'>
+					<span className='mt-auto'>{blogPost.blogAuthor.authorName}</span> -{' '}
 					<span>published at {blogPost.blogCreatedAt}</span>
 				</p>
 			</div>
@@ -46,12 +46,12 @@ const PostTemplate = ({ blogPost }) => {
 				<div className='col-span-2 hidden sm:block'>
 					<StickyBox
 						offsetTop={50}
-						className='border-2 border-conOrange-200 rounded p-12'
+						className='border-2 border-conOrange-200 rounded p-6'
 					>
-						<h3 className='text-4xl md:text-2xl text-conBlueGreen-700 text-center font-bold pt-12'>
+						<h3 className='text-conH3 text-conBlueGreen-700 text-center font-bold pt-6'>
 							Table of contents
 							{blogPost.blogContent !== null && (
-								<div className='bg-conOrange-200 py-6 mt-12 rounded-lg min-h-fit'>
+								<div className='bg-conOrange-200 py-6 mt-6 rounded-lg min-h-fit text-conPara'>
 									<RichTextToc blogContent={blogPost.blogContent} />
 								</div>
 							)}
@@ -95,7 +95,7 @@ const PostTemplate = ({ blogPost }) => {
 						</ul>
 					</div>
 					<div className='mx-2 mt-12'>
-						<p className='font-bold'>{blogPost.excerpt.excerpt}</p>
+						<p className='text-conPara font-bold'>{blogPost.excerpt.excerpt}</p>
 						{blogPost.blogContent !== null && (
 							<RichTextRendering
 								blogContent={blogPost.blogContent}

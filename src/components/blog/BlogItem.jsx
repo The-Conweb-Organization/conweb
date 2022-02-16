@@ -109,7 +109,7 @@ const BlogItem = ({ blogItem, isTopFiveArticles }) => {
 							alt={imageAltText}
 						/>
 						<figcaption className='pt-4 flex justify-center items-center hover:drop-shadow-md'>
-							<p className='bg-conOrange-200 text-tail-900 text-center text-xs p-1.5 rounded'>
+							<p className='bg-conOrange-200 text-conBlueGreen-700 text-center text-xs p-1.5 rounded'>
 								Photo by{' '}
 								<a href={photographerUrl} target='_blank' rel='noreferrer'>
 									{photographer}
@@ -132,7 +132,7 @@ const BlogItem = ({ blogItem, isTopFiveArticles }) => {
 					</h3>
 					<div className='flex justify-center'>
 						<p className='border border-conOrange-200 text-conOrange-200 text-tail-900 text-xs py-0.5 px-1 rounded'>
-							<span className='mt-auto'>{authorName}</span> |
+							<span className='mt-auto'>{authorName}</span> -{' '}
 							<span>published at {blogCreatedAt}</span>
 						</p>
 					</div>
@@ -164,7 +164,9 @@ const BlogItem = ({ blogItem, isTopFiveArticles }) => {
 				</div>
 				{!isTopFiveArticles && (
 					<div className=' w-full md:w-1/2 col-span-2 justify-self-center'>
-						<p className='text-tail-900 text-center p-1.5 rounded'>{excerpt}</p>
+						<p className='text-conBlueGreen-800 text-center p-1.5 rounded'>
+							{excerpt}
+						</p>
 
 						<div className='flex justify-center w-full relative'>
 							<button

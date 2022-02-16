@@ -7,14 +7,14 @@ import '@fontsource/open-sans/400.css';
 import '@fontsource/open-sans/700.css';
 import './src/styles/tailwind.css';
 
-export const wrapPageElement = ({ element, props }) => {
-	return (
-		<BlogProjectDataProvider>
-			<MenuAndInfoProvider>
-				<SearchQueryProvider>
-					<Layout {...props}>{element}</Layout>
-				</SearchQueryProvider>
-			</MenuAndInfoProvider>
-		</BlogProjectDataProvider>
-	);
-};
+export const wrapPageElement = ({ element, props }) => (
+	<Layout {...props}>{element}</Layout>
+);
+
+export const wrapRootElement = ({ element }) => (
+	<BlogProjectDataProvider>
+		<MenuAndInfoProvider>
+			<SearchQueryProvider>{element}</SearchQueryProvider>
+		</MenuAndInfoProvider>
+	</BlogProjectDataProvider>
+);

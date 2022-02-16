@@ -40,7 +40,8 @@ module.exports = {
 				conH1: 'clamp(3.94rem, 3.7533vw, 4.5rem)',
 				conH2: 'clamp(2.95rem, 2.8067vw, 3.38rem)',
 				conH3: 'clamp(1.97rem, 1.8767vw, 2.25rem)',
-				conH4: 'clamp(1rem, 0.95883vw, 1.125rem)'
+				conH4: 'clamp(1rem, 0.95883vw, 1.125rem)',
+				conPara: 'clamp(1rem, 0.95vw, 1.25rem )'
 			}
 		}
 	},

@@ -18,10 +18,10 @@ const RichTextToc = ({ blogContent }) => {
 	const options = {
 		renderNode: {
 			[BLOCKS.HEADING_2]: (node, children) => {
-				return <div className=''>{children}</div>;
+				return <div>{children}</div>;
 			},
 			[BLOCKS.HEADING_3]: (node, children) => {
-				return <div className=''>{children}</div>;
+				return <div>{children}</div>;
 			}
 		}
 	};

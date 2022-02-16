@@ -56,7 +56,7 @@ const BlogItem = ({ projectItem, isTopFiveArticles }) => {
 					</ul>
 				</div>
 				<div className='sm:col-span-2 w-full'>
-					<p className='text-tail-900 text-center p-1.5 rounded'>
+					<p className='text-conBlueGreen-800 text-center p-1.5 rounded'>
 						{projectDescription}
 					</p>
 					<div className='flex flex-col items-center w-full relative'>

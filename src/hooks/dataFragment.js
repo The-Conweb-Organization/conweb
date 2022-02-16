@@ -8,7 +8,7 @@ export const queryPostData = graphql`
 			categoryName
 			categoryId: id
 		}
-		blogCreatedAt
+		blogCreatedAt(formatString: "DD.MM.YYYY")
 		blogAuthor {
 			authorName
 		}
@@ -30,8 +30,8 @@ export const queryProjectData = graphql`
 	fragment ProjectData on ContentfulProject {
 		projectTitle
 		projectTechnology
-		projectCreatedAt
-		projectEndAt
+		projectCreatedAt(formatString: "DD.MM.YYYY")
+		projectEndAt(formatString: "DD.MM.YYYY")
 		projectLive
 		projectGithubRepo
 		projectDescription {
