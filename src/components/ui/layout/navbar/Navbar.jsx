@@ -8,6 +8,7 @@ import { faStream, faTimes } from '@fortawesome/free-solid-svg-icons';
 import useTopNavigation from '../../../../hooks/useTopNavigation';
 import SearchBar from '../../../search/SearchBar';
 import { useShowMenu } from '../../../../hooks/useMenuAndInfo';
+import { ToggleMode } from '../../../utilities/darkMode';
 
 const Navbar = () => {
 	const { search } = useLocation();
@@ -109,7 +110,7 @@ const Navbar = () => {
 					return !url.match(regex) ? (
 						<li className='mb-4 md:mb-0 md:mr-4 md:flex-auto' key={idx}>
 							<Link
-								className='btn btn-primary bg-conOrange-200 hover:bg-conOrange-300 border-transparent hover:border-transparent text-conBlueGreen-700 w-full'
+								className='btn btn-primary bg-secondary text-primary hover:bg-hover border-transparent hover:border-transparent w-full'
 								to={`/`}
 								onClick={onHideMenuHandler}
 							>
@@ -119,7 +120,7 @@ const Navbar = () => {
 					) : (
 						<li className='mb-4 md:mb-0 md:mr-4 md:flex-auto' key={idx}>
 							<Link
-								className='btn btn-primary bg-conOrange-200 hover:bg-conOrange-300 border-transparent hover:border-transparent text-conBlueGreen-700 w-full'
+								className='btn btn-primary bg-secondary hover:bg-hover border-transparent hover:border-transparent text-primary w-full'
 								to={`/${url}`}
 								onClick={onHideMenuHandler}
 							>
@@ -128,6 +129,7 @@ const Navbar = () => {
 						</li>
 					);
 				})}
+				<ToggleMode />
 				<div className='order-first mt-4 mb-4 md:order-none md:mt-0 md:mb-0 md:pl-4 md:pr-4 md:flex-auto md:w-full'>
 					<SearchBar
 						searchQuery={searchQuery}
@@ -136,7 +138,7 @@ const Navbar = () => {
 				</div>
 				<button
 					type='button'
-					className='btn btn-primary bg-conOrange-200 hover:bg-conOrange-300 border-transparent hover:border-transparent text-conBlueGreen-700 w-full mt-16 md:mt-0 md:w-fit'
+					className='btn btn-primary bg-secondary hover:bg-hover border-transparent hover:border-transparent text-primary w-full mt-16 md:mt-0 md:w-fit'
 				>
 					Subscribe
 				</button>
@@ -145,10 +147,10 @@ const Navbar = () => {
 	}
 
 	return (
-		<nav className='bg-conBlueGreen-700 relative'>
+		<nav className='bg-primary relative'>
 			<div className='flex flex-col mx-auto p-4 md:p-12 md:flex-row md:items-center relative'>
 				<div className='block mx-auto p-4 md:p-12 md:hidden'>
-					<h1 className='text-4xl text-conOrange-200 uppercase text-center'>
+					<h1 className='text-4xl text-primary uppercase text-center'>
 						Conweb
 					</h1>
 				</div>

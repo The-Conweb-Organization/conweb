@@ -33,7 +33,7 @@ const BlogTemplate = () => {
 							: hideFilteringHandler
 					}
 					type='button'
-					className='btn bg-conBlueGreen-700 text-conOrange-200 text-2xl w-fit justify-self-end'
+					className='btn bg-secondary hover:bg-hover text-primary text-2xl w-fit justify-self-end'
 				>
 					<FontAwesomeIcon icon={faSlidersH} />
 				</button>

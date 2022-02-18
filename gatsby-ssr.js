@@ -6,6 +6,20 @@ import Layout from './src/components/ui/layout/Layout';
 import '@fontsource/open-sans/400.css';
 import '@fontsource/open-sans/700.css';
 import './src/styles/tailwind.css';
+import { darkMode } from './src/components/utilities/darkMode';
+
+const headComponents = [
+	<script
+		key='darkMode'
+		dangerouslySetInnerHTML={{
+			__html: darkMode()
+		}}
+	/>
+];
+
+export const onRenderBody = ({ setHeadComponents }) => {
+	setHeadComponents(headComponents);
+};
 
 export const wrapPageElement = ({ element, props }) => (
 	<Layout {...props}>{element}</Layout>

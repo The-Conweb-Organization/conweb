@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { navigate } from 'gatsby';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 import { BlogProjectDataContext } from '../hooks/useBlogProjectDataContext';
 import SectionContainer from '../components/ui/SectionContainer';
 import ContentContainer from '../components/ui/ContentContainer';
@@ -20,9 +22,7 @@ const HomeTemplate = () => {
 			</SectionContainer>
 
 			<SectionContainer>
-				<h2 className='text-center text-conOrange-200 font-bold text-5xl'>
-					Top 5 recent blog articles
-				</h2>
+				<Heading headingType='h2'>Top 5 recent blog articles</Heading>
 				<ContentContainer>
 					<BlogList
 						isTopFiveArticles={true}
@@ -33,10 +33,13 @@ const HomeTemplate = () => {
 						<button
 							type='button'
 							onClick={() => navigate('/blog')}
-							className='btn btn-primary bg-conOrange-200 hover:bg-conOrange-300 border-transparent hover:border-transparent text-conBlueGreen-700'
+							className='btn btn-primary bg-secondary hover:bg-hover border-transparent hover:border-transparent text-primary'
 						>
 							See all blog articles&emsp;
-							<i className='fas fa-long-arrow-alt-right'></i>
+							<FontAwesomeIcon
+								icon={faLongArrowAltRight}
+								className='text-primary'
+							/>
 						</button>
 					</div>
 				</ContentContainer>
@@ -51,9 +54,7 @@ const HomeTemplate = () => {
 			</SectionContainer>
 
 			<SectionContainer>
-				<h2 className='text-center text-conOrange-200 font-bold text-5xl'>
-					Top 5 recent projects
-				</h2>
+				<Heading headingType='h2'>Top 5 recent projects</Heading>
 				<ContentContainer>
 					<ProjectList
 						isTopFiveArticles={true}
@@ -63,10 +64,13 @@ const HomeTemplate = () => {
 						<button
 							type='button'
 							onClick={() => navigate('/projects')}
-							className='btn btn-primary bg-conOrange-200 hover:bg-conOrange-300 border-transparent hover:border-transparent text-conBlueGreen-700'
+							className='btn btn-primary bg-secondary hover:bg-hover border-transparent hover:border-transparent text-primary'
 						>
 							See all projects&emsp;
-							<i className='fas fa-long-arrow-alt-right'></i>
+							<FontAwesomeIcon
+								icon={faLongArrowAltRight}
+								className='text-primary'
+							/>
 						</button>
 					</div>
 				</ContentContainer>

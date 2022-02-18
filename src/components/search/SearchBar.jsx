@@ -18,16 +18,15 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
 			<div className='form-control'>
 				<div className='relative'>
 					<input
-						className='input input-primary input-bordered w-full pr-16'
+						className='bg-secondary text-primary placeholder:text-primary w-full pl-4 pr-16 h-12 rounded-lg outline-none focus:border-2 focus:border-accent'
 						type='text'
 						placeholder='Search...'
 						value={searchQuery}
 						onInput={onInputHandler}
-						// name='search'
 					/>
 					<button
 						type='submit'
-						className='absolute top-0 right-0 rounded-l-none btn btn-ghost border-l-2 border-conBlueGreen-700'
+						className='absolute top-0 right-0 rounded-l-none btn btn-ghost'
 					>
 						<FontAwesomeIcon icon={faSearch} />
 					</button>

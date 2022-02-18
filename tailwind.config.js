@@ -42,12 +42,19 @@ module.exports = {
 			backgroundColor: {
 				primary: withOpacity('--color-bg-primary'),
 				secondary: withOpacity('--color-bg-secondary'),
-				accent: withOpacity('--color-accent')
+				hover: withOpacity('--color-bg-hover'),
+				fill: withOpacity('--color-bg-fill')
 			},
 			textColor: {
 				primary: withOpacity('--color-text-primary'),
 				secondary: withOpacity('--color-text-secondary'),
-				accent: withOpacity('--color-accent')
+				accent: withOpacity('--color-text-accent'),
+				paragraph: withOpacity('--color-text-paragraph')
+			},
+			borderColor: {
+				primary: withOpacity('--color-border-primary'),
+				secondary: withOpacity('--color-border-secondary'),
+				accent: withOpacity('--color-border-accent')
 			},
 			fontSize: {
 				conH1: 'clamp(3.94rem, 3.7533vw, 4.5rem)',

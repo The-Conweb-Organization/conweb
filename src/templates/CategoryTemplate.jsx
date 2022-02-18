@@ -15,7 +15,7 @@ const CategoryTemplate = ({ category: { categoryName, post } }) => {
 			<Heading headingType='h2'>
 				<button
 					type='button'
-					className='btn bg-conBlueGreen-700 text-conOrange-200 text-2xl w-fit'
+					className='btn bg-primary text-primary text-2xl w-fit'
 					onClick={() => navigate(-1)}
 				>
 					<FontAwesomeIcon icon={faLongArrowAltLeft} />

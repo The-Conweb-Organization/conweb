@@ -49,7 +49,7 @@ module.exports = {
 						resolve: 'gatsby-remark-classes',
 						options: {
 							classMap: {
-								'heading[depth=2]': 'mb-6 text-conOrange-200 text-conH2',
+								'heading[depth=2]': 'mb-6 text-primary text-conH2',
 								'heading[depth=3]': 'mb-4 text-conH3'
 							}
 						}

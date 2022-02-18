@@ -18,10 +18,14 @@ const RichTextToc = ({ blogContent }) => {
 	const options = {
 		renderNode: {
 			[BLOCKS.HEADING_2]: (node, children) => {
-				return <div>{children}</div>;
+				return (
+					<div className='text-conPara text-primary font-bold'>{children}</div>
+				);
 			},
 			[BLOCKS.HEADING_3]: (node, children) => {
-				return <div>{children}</div>;
+				return (
+					<div className='text-conPara text-primary font-bold'>{children}</div>
+				);
 			}
 		}
 	};

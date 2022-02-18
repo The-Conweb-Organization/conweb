@@ -71,17 +71,13 @@ const RichTextRendering = ({ blogContent /* onObserveCallback */ }) => {
 		},
 		renderNode: {
 			[BLOCKS.HEADING_2]: (node, children) => {
-				return (
-					<h2 className='text-conH2 text-conOrange-200 my-6'>{children}</h2>
-				);
+				return <h2 className='text-conH2 text-accent my-6'>{children}</h2>;
 			},
 			[BLOCKS.HEADING_3]: (node, children) => {
-				return (
-					<h3 className='text-conH3 text-conOrange-200 my-6'>{children}</h3>
-				);
+				return <h3 className='text-conH3 text-secondary my-6'>{children}</h3>;
 			},
 			[BLOCKS.PARAGRAPH]: (node, children) => {
-				return <p className='text-conPara my-4'>{children}</p>;
+				return <p className='text-conPara text-paragraph my-4'>{children}</p>;
 			},
 			[BLOCKS.UL_LIST]: (node, children) => {
 				return <ul className='list-disc pl-4'>{children}</ul>;

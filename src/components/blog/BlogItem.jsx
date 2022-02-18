@@ -35,14 +35,14 @@ const BlogItem = ({ blogItem, isTopFiveArticles }) => {
 		postContent = (
 			<div className='grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6'>
 				<div className='lg:col-span-2 w-full drop-shadow-md'>
-					<figure className='border-2 border-conBlueGreen-700 h-fit w-full rounded-lg p-2 drop-shadow-md'>
+					<figure className='border-2 border-primary h-fit w-full rounded-lg p-2 drop-shadow-md'>
 						<GatsbyImage
 							className='object-cover rounded-lg'
 							image={image}
 							alt={imageAltText}
 						/>
 						<figcaption className='pt-4 flex justify-center items-center hover:drop-shadow-md'>
-							<p className='bg-conOrange-200 text-tail-900 text-center text-xs p-1.5 rounded'>
+							<p className='bg-secondary text-primary text-center text-xs font-bold p-1.5 rounded'>
 								Photo by{' '}
 								<a href={photographerUrl} target='_blank' rel='noreferrer'>
 									{photographer}
@@ -55,20 +55,20 @@ const BlogItem = ({ blogItem, isTopFiveArticles }) => {
 						</figcaption>
 					</figure>
 				</div>
-				<div className='lg:col-span-2 flex flex-col h-full bg-conBlueGreen-700 p-2 gap-4 drop-shadow-md rounded'>
-					<h3 className='text-4xl md:text-2xl text-center text-conOrange-200 font-bold'>
+				<div className='lg:col-span-2 flex flex-col h-full bg-primary p-2 gap-4 drop-shadow-md rounded'>
+					<h3 className='text-4xl md:text-2xl text-center text-secondary font-bold'>
 						{blogTitle}
 					</h3>
 					<div className='flex justify-center'>
-						<p className='border border-conOrange-200 text-conOrange-200 text-tail-900 text-xs py-0.5 px-1 rounded'>
-							<span className='mt-auto'>{authorName}</span> |
+						<p className='text-secondary text-xs py-0.5 px-1 rounded'>
+							<span className='mt-auto'>{authorName}</span> -{' '}
 							<span>published at {blogCreatedAt}</span>
 						</p>
 					</div>
 					<ul className='flex justify-center w-full flex-wrap mt-12'>
 						{blogCategories.map(({ categoryId, categoryName }) => (
 							<Fragment key={categoryId}>
-								<li className='bg-conOrange-200 text-center text-xs text-conBlueGreen-700 py-0.5 px-1 mt-2 mr-2 rounded'>
+								<li className='bg-secondary text-center text-xs text-primary py-0.5 px-1 mt-2 mr-2 rounded'>
 									{categoryName}
 								</li>
 							</Fragment>
@@ -76,13 +76,13 @@ const BlogItem = ({ blogItem, isTopFiveArticles }) => {
 					</ul>
 				</div>
 				<div className='sm:col-span-2 w-full'>
-					<p className='text-tail-900 text-center h-24 p-1.5 rounded line-clamp-4'>
+					<p className='text-conPara text-paragraph text-center h-24 p-1.5 rounded line-clamp-4'>
 						{excerpt}
 					</p>
 					<div className='flex justify-center w-full relative mt-4'>
 						<button
 							type='button'
-							className='btn btn-block btn-outline btn-sm border-conBlueGreen-700 text-conBlueGreen-700 hover:bg-conBlue-700 hover:border-transparent hover:text-conOrange-200 md:w-fit'
+							className='btn btn-block btn-outline btn-sm border-secondary text-secondary hover:bg-secondary hover:border-transparent hover:text-primary md:w-fit'
 							onClick={() => navigate(getPostPath)}
 						>
 							Read More&emsp;
@@ -100,7 +100,7 @@ const BlogItem = ({ blogItem, isTopFiveArticles }) => {
 						isTopFiveArticles && 'md:w-1/2'
 					}`}
 				>
-					<figure className='border-2 border-conBlueGreen-700 h-fit w-fit rounded-lg p-2 drop-shadow-md'>
+					<figure className='border-2 border-primary h-fit w-fit rounded-lg p-2 drop-shadow-md'>
 						<GatsbyImage
 							className={`object-cover ${
 								isTopFiveArticles && 'h-40'
@@ -109,7 +109,7 @@ const BlogItem = ({ blogItem, isTopFiveArticles }) => {
 							alt={imageAltText}
 						/>
 						<figcaption className='pt-4 flex justify-center items-center hover:drop-shadow-md'>
-							<p className='bg-conOrange-200 text-conBlueGreen-700 text-center text-xs p-1.5 rounded'>
+							<p className='bg-secondary text-primary text-center font-bold text-xs p-1.5 rounded'>
 								Photo by{' '}
 								<a href={photographerUrl} target='_blank' rel='noreferrer'>
 									{photographer}
@@ -125,13 +125,13 @@ const BlogItem = ({ blogItem, isTopFiveArticles }) => {
 				<div
 					className={`flex flex-col col-span-2 md:col-span-1 h-full ${
 						!isTopFiveArticles && 'justify-center'
-					} bg-conBlueGreen-700 p-2 gap-4 drop-shadow-md rounded`}
+					} bg-primary p-2 gap-4 drop-shadow-md rounded`}
 				>
-					<h3 className='text-4xl md:text-2xl text-center text-conOrange-200 font-bold'>
+					<h3 className='text-4xl md:text-2xl text-center text-secondary font-bold'>
 						{blogTitle}
 					</h3>
 					<div className='flex justify-center'>
-						<p className='border border-conOrange-200 text-conOrange-200 text-tail-900 text-xs py-0.5 px-1 rounded'>
+						<p className='border border-secondary text-secondary text-xs py-0.5 px-1 rounded'>
 							<span className='mt-auto'>{authorName}</span> -{' '}
 							<span>published at {blogCreatedAt}</span>
 						</p>
@@ -143,7 +143,7 @@ const BlogItem = ({ blogItem, isTopFiveArticles }) => {
 					>
 						{blogCategories.map(({ categoryId, categoryName }) => (
 							<Fragment key={categoryId}>
-								<li className='bg-conOrange-200 text-center text-xs text-conBlueGreen-700 py-0.5 px-1 mt-2 mr-2 rounded'>
+								<li className='bg-secondary text-center text-xs text-primary font-bold py-0.5 px-1 mt-2 mr-2 rounded'>
 									{categoryName}
 								</li>
 							</Fragment>
@@ -153,7 +153,7 @@ const BlogItem = ({ blogItem, isTopFiveArticles }) => {
 						<div className='flex justify-center w-full'>
 							<button
 								type='button'
-								className='btn btn-block btn-outline btn-sm border-conOrange-200 text-conOrange-200 hover:bg-conOrange-200 hover:border-transparent hover:text-conBlueGreen-700 md:w-fit'
+								className='btn btn-block btn-outline btn-sm border-secondary text-secondary hover:bg-secondary hover:border-transparent hover:text-primary md:w-fit'
 								onClick={() => navigate(getPostPath)}
 							>
 								Read More&emsp;
@@ -164,14 +164,14 @@ const BlogItem = ({ blogItem, isTopFiveArticles }) => {
 				</div>
 				{!isTopFiveArticles && (
 					<div className=' w-full md:w-1/2 col-span-2 justify-self-center'>
-						<p className='text-conBlueGreen-800 text-center p-1.5 rounded'>
+						<p className='text-paragraph text-center p-1.5 rounded'>
 							{excerpt}
 						</p>
 
 						<div className='flex justify-center w-full relative'>
 							<button
 								type='button'
-								className='btn btn-block btn-outline btn-sm border-conBlueGreen-700 text-conBlueGreen-700 hover:bg-conBlue-700 hover:border-transparent hover:text-conOrange-200 md:w-fit'
+								className='btn btn-block btn-outline btn-sm border-secondary text-secondary hover:bg-secondary hover:border-transparent hover:text-primary md:w-fit'
 								onClick={() => navigate(getPostPath)}
 							>
 								Read More&emsp;

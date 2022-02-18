@@ -28,7 +28,7 @@ const PostTemplate = ({ blogPost }) => {
 			<Heading headingType='h1'>
 				<button
 					type='button'
-					className='btn btn-sm bg-conBlueGreen-700 text-conOrange-200 text-2xl w-fit'
+					className='btn btn-sm bg-secondary text-primary border-transparent hover:bg-hover hover:border-transparent text-2xl w-fit'
 					onClick={() => navigate(-1)}
 				>
 					<FontAwesomeIcon icon={faLongArrowAltLeft} />
@@ -37,7 +37,7 @@ const PostTemplate = ({ blogPost }) => {
 				<span>{blogPost.blogTitle}</span>
 			</Heading>
 			<div className='flex justify-center'>
-				<p className='border border-conOrange-200 text-conOrange-200 text-xs py-0.5 px-1 rounded mb-6'>
+				<p className='border border-secondary text-secondary text-xs py-0.5 px-1 rounded mb-6'>
 					<span className='mt-auto'>{blogPost.blogAuthor.authorName}</span> -{' '}
 					<span>published at {blogPost.blogCreatedAt}</span>
 				</p>
@@ -46,12 +46,12 @@ const PostTemplate = ({ blogPost }) => {
 				<div className='col-span-2 hidden sm:block'>
 					<StickyBox
 						offsetTop={50}
-						className='border-2 border-conOrange-200 rounded p-6'
+						className='border-2 border-secondary rounded p-6'
 					>
-						<h3 className='text-conH3 text-conBlueGreen-700 text-center font-bold pt-6'>
+						<h3 className='text-conH3 text-secondary text-center font-bold pt-6'>
 							Table of contents
 							{blogPost.blogContent !== null && (
-								<div className='bg-conOrange-200 py-6 mt-6 rounded-lg min-h-fit text-conPara'>
+								<div className='bg-secondary py-6 mt-6 rounded-lg min-h-fit'>
 									<RichTextToc blogContent={blogPost.blogContent} />
 								</div>
 							)}
@@ -59,7 +59,7 @@ const PostTemplate = ({ blogPost }) => {
 					</StickyBox>
 				</div>
 
-				<div className='col-span-4 border-2 border-conBlueGreen-700 rounded'>
+				<div className='col-span-4 border-2 border-secondary rounded'>
 					<figure className='p-2 drop-shadow-md'>
 						<GatsbyImage
 							className='object-cover h-96 w-full rounded-lg'
@@ -67,7 +67,7 @@ const PostTemplate = ({ blogPost }) => {
 							alt={blogPost.blogFeaturedImage.imageAltText}
 						/>
 						<figcaption className='pt-4 flex justify-center items-center hover:drop-shadow-md'>
-							<p className='bg-conOrange-200 text-tail-900 text-center p-1.5 rounded'>
+							<p className='bg-secondary text-primary text-center font-bold p-1.5 rounded'>
 								Photo by{' '}
 								<a
 									href={blogPost.blogFeaturedImage.photographerUrl}
@@ -83,11 +83,11 @@ const PostTemplate = ({ blogPost }) => {
 							</p>
 						</figcaption>
 					</figure>
-					<div className='bg-conBlueGreen-700 drop-shadow-md rounded m-2'>
+					<div className='bg-primary drop-shadow-md rounded m-2'>
 						<ul className='flex justify-center items-center flex-wrap my-4 mb-2'>
 							{blogPost.blogCategories.map(({ categoryId, categoryName }) => (
 								<Fragment key={categoryId}>
-									<li className='bg-conOrange-200 text-center text-xs text-conBlueGreen-700 py-0.5 px-1 mr-2 mb-2 md:mb-0 rounded'>
+									<li className='bg-secondary text-center text-xs text-primary font-bold py-0.5 px-1 mr-2 mb-2 md:mb-0 rounded'>
 										{categoryName}
 									</li>
 								</Fragment>
@@ -95,7 +95,9 @@ const PostTemplate = ({ blogPost }) => {
 						</ul>
 					</div>
 					<div className='mx-2 mt-12'>
-						<p className='text-conPara font-bold'>{blogPost.excerpt.excerpt}</p>
+						<p className='text-conPara text-accent font-bold'>
+							{blogPost.excerpt.excerpt}
+						</p>
 						{blogPost.blogContent !== null && (
 							<RichTextRendering
 								blogContent={blogPost.blogContent}

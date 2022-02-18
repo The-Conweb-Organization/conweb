@@ -4,21 +4,35 @@
 
 @layer base {
 	:root {
-		--color-bg-primary: rgb(244, 111, 78);
-		--color-bg-secondary: rgb(23, 52, 54);
-		--color-text-primary: rgb(244, 111, 78);
-		--color-text-secondary: rgb(23, 52, 54);
-		--color-border-primary: rgb(244, 111, 78);
-		--color-border-secondary: rgb(23, 52, 54);
-		--color-accent: rgb(241, 248, 249);
+		/* background */
+		--color-bg-primary: 23, 52, 54;
+		--color-bg-secondary: 255, 145, 77;
+		--color-bg-hover: 230, 130, 69;
+		--color-bg-fill: 241, 248, 249;
+		/* text */
+		--color-text-primary: 23, 52, 54;
+		--color-text-secondary: 255, 145, 77;
+		--color-text-accent: 244, 111, 78;
+		--color-text-paragraph: 20, 23, 26;
+		/* border */
+		--color-border-primary: 23, 52, 54;
+		--color-border-secondary: 255, 145, 77;
+		/* --color-border-accent: 166, 124, 114; */
 	}
-	.theme-dark {
-		--color-bg-primary: rgb(244, 111, 78);
-		--color-bg-secondary: rgb(37, 82, 86);
-		--color-text-primary: rgb(244, 111, 78);
-		--color-text-secondary: rgb(241, 248, 249);
-		--color-border-primary: rgb(244, 111, 78);
-		--color-border-secondary: rgb(241, 248, 249);
-		--color-accent: rgb(12, 27, 29);
+	:root.theme-dark {
+		/* background */
+		--color-bg-primary: 84, 84, 94;
+		--color-bg-secondary: 159, 159, 179;
+		--color-bg-hover: 134, 134, 150;
+		--color-bg-fill: 34, 34, 38;
+		/* text */
+		--color-text-primary: 84, 84, 94;
+		--color-text-secondary: 159, 159, 179;
+		--color-text-accent: 166, 124, 114;
+		--color-text-paragraph: 241, 248, 249;
+		/* border */
+		--color-border-primary: 84, 84, 94;
+		--color-border-secondary: 159, 159, 179;
+		/* --color-border-accent: 166, 124, 114; */
 	}
 }

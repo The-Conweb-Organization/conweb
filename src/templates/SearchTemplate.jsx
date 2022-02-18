@@ -23,7 +23,7 @@ const SearchTemplate = () => {
 			<Heading headingType='h2'>
 				<button
 					type='button'
-					className='btn bg-conBlueGreen-700 text-conOrange-200 text-2xl w-fit'
+					className='btn bg-primary text-primary text-2xl w-fit'
 					onClick={() => navigate(-1)}
 				>
 					<FontAwesomeIcon icon={faLongArrowAltLeft} />
@@ -47,15 +47,15 @@ const SearchTemplate = () => {
 						return (
 							<Fragment key={postId}>
 								<div className='grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6'>
-									<div className='lg:col-span-2 flex flex-col h-full bg-conBlueGreen-700 p-2 gap-4 drop-shadow-md rounded'>
-										<h3 className='text-4xl md:text-2xl text-center text-conOrange-200 font-bold'>
+									<div className='lg:col-span-2 flex flex-col h-full bg-primary p-2 gap-4 drop-shadow-md rounded'>
+										<h3 className='text-4xl md:text-2xl text-center text-primary font-bold'>
 											{blogTitle}
 										</h3>
 										<ul className='flex justify-center w-full flex-wrap mt-12'>
 											{blogCategories.map(
 												({ id: categoryId, categoryName }) => (
 													<Fragment key={categoryId}>
-														<li className='bg-conOrange-200 text-center text-xs text-conBlueGreen-700 py-0.5 px-1 mt-2 mr-2 rounded'>
+														<li className='bg-secondary text-center text-xs text-secondary py-0.5 px-1 mt-2 mr-2 rounded'>
 															{categoryName}
 														</li>
 													</Fragment>
@@ -70,7 +70,7 @@ const SearchTemplate = () => {
 										<div className='flex justify-center w-full relative'>
 											<button
 												type='button'
-												className='btn btn-block btn-outline btn-sm border-conBlueGreen-700 text-conBlueGreen-700 hover:bg-conBlue-700 hover:border-transparent hover:text-conOrange-200 md:w-fit'
+												className='btn btn-block btn-outline btn-sm border-secondary text-secondary hover:bg-conBlue-700 hover:border-transparent hover:text-primary md:w-fit'
 												onClick={() => navigate(getPostPath)}
 											>
 												Read More&emsp;
