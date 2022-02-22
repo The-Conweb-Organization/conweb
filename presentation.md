@@ -37,7 +37,7 @@
         - default `html.js` file will suffice
         - better using `gatsby-ssr.js` config file or
         - for including metadata `gatsby-react-helmet` plugin
-      - Non-page components
+    - Non-page components
         - components that are embedded inside other components
         - forming a component hierarchy
         - using GraphQL to declare data
@@ -50,7 +50,9 @@
     - is a query language hence the 'ql' in GraphQL
     - using 'page queries' for pulling data into page components or
     - using `useStaticQuery` hook or `StaticQuery` component for Non-page components
-    - using `StaticQuery` component or `useStaticQuery` hook
+    - using `page query` for page components
+      - can used with variables to get certain data
+      - can only used in page components or suitable locations
     - eliminate frontend data boilerplate; just asking for data with GraphQl and it'll show up when you need it
     - Gatsby uses source plugins to pull data to the GraphQL schema
     - you should use `createResolvers` function to add custom field resolvers to the GraphQL schema
