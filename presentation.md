@@ -7,8 +7,19 @@
   - used for dynamic content
   - building web apps, portfolio, high-traffic e-commerce store
 
-- concepts
-  - **Building with react components**
+### Core Concepts
+
+- **Building with react components**
+- **GraphQL concepts**
+- **Image optimizations**
+- **The Gatsby build process**
+- **Plugins, Themes and Starters**
+- **Data fetching**
+- **Rendering options**
+- **React hydrations**
+
+### Building with react components
+
     - Modularity, reusability, clear abstractions
     - open source, tutorials and tooling
     - behave like a normal React application
@@ -30,7 +41,9 @@
         - components that are embedded inside other components
         - forming a component hierarchy
         - using GraphQL to declare data
-  - **GraphQL Concepts**
+
+### GraphQL Concepts
+
     - many options for loading data into React components
     - most popular and powerful of these is `GraphQL`
     - was invented at Facebook to help engineers pull data in React components
@@ -46,7 +59,9 @@
     - many transformations can be done at build-time
     - perfect for querying complex or nested data
     - improving performance by removing data bloat. Selecting only the data you need, not whatever an API returns
-  - **Image Optimizations** _(Image Plugin Architecture)_
+
+### Image Optimizations _(Image Plugin Architecture)_
+
     - avoid hydration lag for React apps ('catch-22 dilemma')
       - server rendering during build process rather than when user is loading the page
       - Gatsby site return HTML immediately without waiting for server rendering
@@ -70,7 +85,9 @@
       - better compression
         - WebP image
         - AVIF image format
-  - **The Gatsby Build Process**
+
+### The Gatsby Build Process
+
     - Two modes for compiling a site:
       - Devlop - run with `gatsby develop`
         - doesn't perform some of the production build steps that the `gatsby build` command does
@@ -93,7 +110,9 @@
           - `gatsby build`:
             - delete previous html and css files
             - invoke post bootstrap process like generating image thumbnails, bundle JavaScript and CSS or building static HTML for pages
-  - **Plugins, Themes, Starters** _(Theme Shadowing)_
+
+### Plugins, Themes, Starters _(Theme Shadowing)_
+
     - In Gatsby there's more than one way to build a site.
     - Differences between plugins, themes, starters
     - Plugins:
@@ -126,14 +145,18 @@
       - Starters:
         - a boilerplate which you can use as a starting point for your Gatsby site
         - once modified, a starter maintains no connection to its source
-  - **Data Fetching**
+
+### Data Fetching
+
     - Gatsby can fetch data at both build time and runtime
     - It's capable of generating content at build time as well as making calls to external services at runtime
     - you can make advantage of the benefits of static content as well as dynamic content
     - It is possible through React hydration which it means that Gatsby (through React.js) builds static files to render server-side
     - Gatsby downloads and execute its script bundle, preserves the HTML and turns the site into a full React web app
     - Compiling pages at build time is useful when content won't change often, whereas some websites with more dynamic needs require a client-side runtime
-  - **Rendering Options**
+
+### Rendering Options
+
     - Rendering defines the stage which your page's user-facing HTML is generated
     - It can happens:
       - At build time (SSG static side generation or pre-rendering)
@@ -156,7 +179,9 @@
         - It is conceptually very similar to SSG
         - The difference is that developers can choose to defer building certain pages until it's requested for the first time
         - DSG gives developers greater control over their site's build time
-  - **React Hydration**
+
+### React Hydration
+
     - One central idea of Gatsby is that HTML content is statically generated using ReactDOM server-side API
     - Another key feature is that static HTML content can be enhanced with client-side JavaScript via React hydration
       - `hydrate()` method is called internally by Gatsby from ReactDOM
