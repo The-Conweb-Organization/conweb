@@ -150,7 +150,7 @@ const Navbar = () => {
 		<nav className='bg-primary relative'>
 			<div className='flex flex-col mx-auto p-4 md:p-12 md:flex-row md:items-center relative'>
 				<div className='block mx-auto p-4 md:p-12 md:hidden'>
-					<h1 className='text-4xl text-primary uppercase text-center'>
+					<h1 className='text-4xl text-secondary uppercase text-center font-bold'>
 						Conweb
 					</h1>
 				</div>
