@@ -36,11 +36,11 @@ const BlogItem = ({ projectItem, isTopFiveArticles }) => {
 					</figure>
 				</div>
 				<div className='lg:col-span-2 flex flex-col h-full bg-primary p-2 gap-4 drop-shadow-md rounded'>
-					<h3 className='text-4xl md:text-2xl text-center text-primary font-bold'>
+					<h3 className='text-4xl md:text-2xl text-center text-secondary font-bold'>
 						{projectTitle}
 					</h3>
 					<div className='flex justify-center'>
-						<p className='border border-primary text-primary text-tail-900 text-xs py-0.5 px-1 rounded'>
+						<p className='border border-primary text-secondary text-xs py-0.5 px-1 rounded'>
 							Project duration <span>{projectCreatedAt}</span> -{' '}
 							<span>{projectEndAt}</span>
 						</p>
@@ -48,7 +48,7 @@ const BlogItem = ({ projectItem, isTopFiveArticles }) => {
 					<ul className='flex justify-center w-full flex-wrap mt-12'>
 						{projectTechnology.map((technology, idx) => (
 							<Fragment key={idx}>
-								<li className='bg-secondary text-center text-xs text-secondary py-0.5 px-1 mt-2 mr-2 rounded'>
+								<li className='bg-secondary text-center text-xs text-primary py-0.5 px-1 mt-2 mr-2 rounded'>
 									{technology}
 								</li>
 							</Fragment>
@@ -56,7 +56,7 @@ const BlogItem = ({ projectItem, isTopFiveArticles }) => {
 					</ul>
 				</div>
 				<div className='sm:col-span-2 w-full'>
-					<p className='text-conBlueGreen-800 text-center p-1.5 rounded'>
+					<p className='text-paragraph text-conPara text-center p-1.5 rounded'>
 						{projectDescription}
 					</p>
 					<div className='flex flex-col items-center w-full relative'>
