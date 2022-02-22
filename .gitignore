@@ -53,7 +53,7 @@ __diff_output__/
 .eslintcache
 scripts/.env
 private/
-presentation.md
+# presentation.md
 
 # lock files
 yarn.lock
